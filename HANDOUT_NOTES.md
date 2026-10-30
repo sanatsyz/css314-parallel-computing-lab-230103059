@@ -2,6 +2,8 @@
 
 The assignment PDF is the source of the required experiment names, files, formulas, and milestone tags. The following points explain where this implementation or this host differs from its assumptions.
 
+The course is **CSS314**, as confirmed by the student and the teacher's whiteboard. The supplied PDF uses the heading "CS482: Performance Evaluation & Optimization"; that heading is a discrepancy in the source document, not the course code for this repository.
+
 ## Authorship and verification
 
 The handout states “No AI code generation” and “No peer collaboration,” and describes a solo, in-lab practicum. This repository was created with AI assistance. It does not comply with that authorship rule unless the instructor explicitly permits an exception. Running real experiments and producing correct results does not remove this restriction.

@@ -4,7 +4,7 @@
   "cryptographically_signed": false,
   "instructor_verifier_available": false,
   "authenticity_limit": "Unsigned local checks and hashes; not an instructor signature or proof of authorship, measurement origin, or timing.",
-  "verified_at_utc": "2026-10-30T05:05:26.983181+00:00",
+  "verified_at_utc": "2026-10-30T05:14:56.725841+00:00",
   "student_id": "30103059",
   "environment": {
     "python": "3.14.3",
@@ -197,8 +197,8 @@
     },
     {
       "path": "HANDOUT_NOTES.md",
-      "bytes": 6817,
-      "sha256": "bfc5a336faaa71ca244b4bc797f35f8c6b149e6000771cd2e27850ec513510aa"
+      "bytes": 7079,
+      "sha256": "fefdc64d4fcd0340f645ae5f1c65a40196842d0a1ed16b6440ab3b98f95d2e4f"
     },
     {
       "path": "ParallelComputingLabPracticum_Paradigm.pdf",
@@ -207,8 +207,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 1765,
-      "sha256": "45cc44f257ab5941bc1a5902736110b90d877c1b0240f9f1267b5cd8033dba6f"
+      "bytes": 1766,
+      "sha256": "3a65cd2147a4cab0710d2667c0c5ca08e22850f09dda83e7b927011eec0cc826"
     },
     {
       "path": "requirements-dev.txt",

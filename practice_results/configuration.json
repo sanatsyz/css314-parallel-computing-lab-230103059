@@ -1,0 +1,27 @@
+{
+  "student_id": "30103059",
+  "branch": "practice-30103059",
+  "handout": "Practice Lab Handout.pdf",
+  "workers": [
+    1,
+    2,
+    4
+  ],
+  "repeats": 3,
+  "aggregation": "median wall-clock seconds across three full runs",
+  "start_method": "spawn",
+  "experiments_run_sequentially": true,
+  "experiment_a": {
+    "total_chunks": 16,
+    "chunk_size": 2000000,
+    "serial_pause_seconds": 0.4
+  },
+  "experiment_b": {
+    "total_increments": 2000000
+  },
+  "experiment_c": {
+    "total_increments": 20000000
+  },
+  "timing_policy": "fresh processes/pools; startup and shutdown included as specified in the handout",
+  "instructor_sign_off": "pending; requires an instructor, not an automated check"
+}

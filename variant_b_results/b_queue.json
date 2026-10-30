@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "case_id": "b_queue",
+  "created_at_utc": "2026-10-30T09:55:00.568188+00:00",
+  "config": {
+    "total_items": 400000,
+    "repeats": 3,
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "start_method": "spawn",
+    "quick": false,
+    "timing_scope": "process start through all queue receives and joins; setup/cleanup excluded",
+    "worker_order": "rotate (1, 2, 4, 8) left by repeat index modulo 4",
+    "parent_checksums_timed": true,
+    "monitor_interval_seconds": 0.1
+  },
+  "samples": [
+    {
+      "workers": 1,
+      "runtime_seconds": 1.790803459007293,
+      "total_items": 400000,
+      "worker_items": [
+        400000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199997,
+      "expected_sum": 1199997,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 2.8777870000049006,
+      "total_items": 400000,
+      "worker_items": [
+        200000,
+        200000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199988,
+      "expected_sum": 1199988,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 2.938621500012232,
+      "total_items": 400000,
+      "worker_items": [
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199980,
+      "expected_sum": 1199980,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 3.198746709007537,
+      "total_items": 400000,
+      "worker_items": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199976,
+      "expected_sum": 1199976,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 3.2413334579905495,
+      "total_items": 400000,
+      "worker_items": [
+        200000,
+        200000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199988,
+      "expected_sum": 1199988,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 2.9242934999929275,
+      "total_items": 400000,
+      "worker_items": [
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199980,
+      "expected_sum": 1199980,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 3.1377126250008587,
+      "total_items": 400000,
+      "worker_items": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199976,
+      "expected_sum": 1199976,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 1.777903249982046,
+      "total_items": 400000,
+      "worker_items": [
+        400000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199997,
+      "expected_sum": 1199997,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 2.9761376249953173,
+      "total_items": 400000,
+      "worker_items": [
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199980,
+      "expected_sum": 1199980,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 3.0679842499957886,
+      "total_items": 400000,
+      "worker_items": [
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199976,
+      "expected_sum": 1199976,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 1.8073542500205804,
+      "total_items": 400000,
+      "worker_items": [
+        400000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199997,
+      "expected_sum": 1199997,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 2.8170939999981783,
+      "total_items": 400000,
+      "worker_items": [
+        200000,
+        200000
+      ],
+      "result_count": 400000,
+      "result_sum": 1199988,
+      "expected_sum": 1199988,
+      "received_messages": 400000,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "repeats": 3,
+      "median_seconds": 1.790803459007293,
+      "minimum_seconds": 1.777903249982046,
+      "maximum_seconds": 1.8073542500205804,
+      "speedup": 1.0,
+      "efficiency_percent": 100.0,
+      "karp_flatt": null
+    },
+    {
+      "workers": 2,
+      "repeats": 3,
+      "median_seconds": 2.8777870000049006,
+      "minimum_seconds": 2.8170939999981783,
+      "maximum_seconds": 3.2413334579905495,
+      "speedup": 0.6222849220613769,
+      "efficiency_percent": 31.114246103068844,
+      "karp_flatt": 2.2139618510678574
+    },
+    {
+      "workers": 4,
+      "repeats": 3,
+      "median_seconds": 2.938621500012232,
+      "minimum_seconds": 2.9242934999929275,
+      "maximum_seconds": 2.9761376249953173,
+      "speedup": 0.6094025579680264,
+      "efficiency_percent": 15.235063949200661,
+      "karp_flatt": 1.8546019089786778
+    },
+    {
+      "workers": 8,
+      "repeats": 3,
+      "median_seconds": 3.1377126250008587,
+      "minimum_seconds": 3.0679842499957886,
+      "maximum_seconds": 3.198746709007537,
+      "speedup": 0.5707353327192617,
+      "efficiency_percent": 7.134191658990771,
+      "karp_flatt": 1.859572139752738
+    }
+  ],
+  "notes": [
+    "Every worker starts i at zero and sends i % 7 individually through one shared Queue.",
+    "Division remainders are assigned exactly; total work is fixed as P changes.",
+    "The timed parent additionally accumulates a checksum to validate record contents.",
+    "A low-frequency exit monitor wakes failed/incomplete runs; normal receives use blocking Queue.get().",
+    "Monitor setup/teardown and Queue resource cleanup occur outside the reported interval.",
+    "Observed performance is retained without enforcing the handout's expected trend."
+  ]
+}

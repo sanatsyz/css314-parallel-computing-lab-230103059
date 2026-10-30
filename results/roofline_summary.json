@@ -1,0 +1,186 @@
+{
+  "benchmark_mode": "full",
+  "salted_n": 1536,
+  "stencil": "u_next[i,j] = (u[i,j] + u[i-1,j] + u[i+1,j] + u[i,j-1] + u[i,j+1]) * 0.2",
+  "boundary_condition": "all four boundaries fixed at zero; interior updated synchronously",
+  "flops_per_interior_update": 5,
+  "flops_definition": "four additions and one multiplication; no fused operations",
+  "arithmetic_intensity_models": {
+    "optimistic_streaming": {
+      "dram_bytes_per_update": 16,
+      "flops_per_byte": 0.3125,
+      "assumption": "each source element fetched once, one destination write, no write allocation or halo overhead"
+    },
+    "streaming_with_write_allocation": {
+      "dram_bytes_per_update": 24,
+      "flops_per_byte": 0.20833333333333334,
+      "assumption": "one 8-byte read, one 8-byte write allocation, one 8-byte writeback"
+    },
+    "logical_ufunc_array_traffic": {
+      "array_bytes_per_update": 112,
+      "flops_per_byte": 0.044642857142857144,
+      "assumption": "four adds each read two values and write one; multiply reads and writes one; cache may serve these accesses"
+    }
+  },
+  "traffic_caveat": "These are explicit estimates, not hardware-counter measurements of DRAM traffic. Cache reuse, write policy and halo rows change actual traffic.",
+  "host_caches": {
+    "l1_data_bytes": 65536,
+    "l2_bytes": 4194304,
+    "l3_bytes": null
+  },
+  "cache_line_bytes": 128,
+  "performance_levels": [
+    {
+      "name": "Performance",
+      "physical_cores": 4,
+      "logical_threads": 4,
+      "l1_data_bytes": 131072,
+      "l2_bytes": 16777216,
+      "cores_per_l2": 4
+    },
+    {
+      "name": "Efficiency",
+      "physical_cores": 6,
+      "logical_threads": 6,
+      "l1_data_bytes": 65536,
+      "l2_bytes": 4194304,
+      "cores_per_l2": 6
+    }
+  ],
+  "cache_interpretation": "Compare each worker's two row slabs plus halo rows with its cache group. Aggregate private/shared cache sizes cannot be treated as one fully accessible cache. Small slabs can be cache resident; full-grid bytes alone do not establish DRAM traffic.",
+  "peak_memory_bandwidth_bytes_per_second": 120000000000,
+  "peak_memory_bandwidth_source": "https://support.apple.com/en-au/122209",
+  "peak_memory_bandwidth_source_accessed": "2026-10-30",
+  "peak_memory_bandwidth_scope": "Apple's documented 120 GB/s unified-memory bandwidth upper bound; shared by the chip, not measured sustained CPU bandwidth for this kernel",
+  "theoretical_bandwidth_ceiling_gflops_per_second": {
+    "optimistic_16_bytes_per_update": 37.5,
+    "write_allocate_24_bytes_per_update": 25.0,
+    "caveat": "AI times manufacturer bandwidth is an upper bound, not a measured sustained rate; cache-resident execution follows a different bandwidth ceiling."
+  },
+  "peak_float64_flops_per_second": null,
+  "ridge_point_flops_per_byte": null,
+  "limiting_regime": "undetermined_without_documented_bandwidth_and_float64_compute_peaks",
+  "conclusion": "The stencil has low arithmetic intensity and is sensitive to memory traffic. Barrier synchronization, NumPy pass overhead, process scheduling and mixed core types can also limit measured scaling. A definitive roofline classification requires documented compute/bandwidth peaks and evidence of the cache/DRAM regime.",
+  "operating_points": [
+    {
+      "mode": "strong",
+      "workers": 1,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 1.4805315619925437,
+      "minimum_streaming_bytes_per_second_model": 4737700998.37614,
+      "logical_ufunc_array_bytes_per_second_model": 33163906988.63298
+    },
+    {
+      "mode": "strong",
+      "workers": 2,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 2.0014927270585785,
+      "minimum_streaming_bytes_per_second_model": 6404776726.587451,
+      "logical_ufunc_array_bytes_per_second_model": 44833437086.11216
+    },
+    {
+      "mode": "strong",
+      "workers": 4,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 2.061533225176301,
+      "minimum_streaming_bytes_per_second_model": 6596906320.564163,
+      "logical_ufunc_array_bytes_per_second_model": 46178344243.94914
+    },
+    {
+      "mode": "strong",
+      "workers": 8,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 1.95835600106557,
+      "minimum_streaming_bytes_per_second_model": 6266739203.409824,
+      "logical_ufunc_array_bytes_per_second_model": 43867174423.868774
+    },
+    {
+      "mode": "strong",
+      "workers": 10,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 2.0297053642232425,
+      "minimum_streaming_bytes_per_second_model": 6495057165.514377,
+      "logical_ufunc_array_bytes_per_second_model": 45465400158.60064
+    },
+    {
+      "mode": "weak",
+      "workers": 1,
+      "n": 1536,
+      "two_grid_working_set_bytes": 37748736,
+      "estimated_flops": 1176578000,
+      "measured_gflops_per_second": 1.2911784235442205,
+      "minimum_streaming_bytes_per_second_model": 4131770955.341505,
+      "logical_ufunc_array_bytes_per_second_model": 28922396687.390537
+    },
+    {
+      "mode": "weak",
+      "workers": 2,
+      "n": 2173,
+      "two_grid_working_set_bytes": 75550864,
+      "estimated_flops": 2356620500,
+      "measured_gflops_per_second": 2.6362701006143348,
+      "minimum_streaming_bytes_per_second_model": 8436064321.96587,
+      "logical_ufunc_array_bytes_per_second_model": 59052450253.76109
+    },
+    {
+      "mode": "weak",
+      "workers": 4,
+      "n": 3072,
+      "two_grid_working_set_bytes": 150994944,
+      "estimated_flops": 4712450000,
+      "measured_gflops_per_second": 3.117985836584091,
+      "minimum_streaming_bytes_per_second_model": 9977554677.06909,
+      "logical_ufunc_array_bytes_per_second_model": 69842882739.48363
+    },
+    {
+      "mode": "weak",
+      "workers": 8,
+      "n": 4345,
+      "two_grid_working_set_bytes": 302064400,
+      "estimated_flops": 9430824500,
+      "measured_gflops_per_second": 3.1902178254423563,
+      "minimum_streaming_bytes_per_second_model": 10208697041.415539,
+      "logical_ufunc_array_bytes_per_second_model": 71460879289.90878
+    },
+    {
+      "mode": "weak",
+      "workers": 10,
+      "n": 4858,
+      "two_grid_working_set_bytes": 377602624,
+      "estimated_flops": 11790368000,
+      "measured_gflops_per_second": 3.0968489245995583,
+      "minimum_streaming_bytes_per_second_model": 9909916558.718586,
+      "logical_ufunc_array_bytes_per_second_model": 69369415911.0301
+    }
+  ],
+  "amdahl_fit": {
+    "identifiable": true,
+    "method": "least squares on inverse speedup with measured T1 fixed",
+    "unconstrained_serial_fraction": 0.6656286685356515,
+    "bounded_serial_fraction": 0.6656286685356515,
+    "unconstrained_asymptotic_speedup": 1.5023391378258213,
+    "bounded_asymptotic_speedup": 1.5023391378258213,
+    "bounded_zero_ceiling_interpretation": null,
+    "inverse_speedup_residual_sum_of_squares": 0.012914248734026839,
+    "physical_range_violation": false,
+    "caveat": "An effective fit includes communication, barriers, heterogeneous cores and noise. Values outside [0,1] indicate model mismatch; the bounded fit is a constrained summary."
+  },
+  "scaling_comparison": {
+    "largest_strong_efficiency_percent": 13.709301553096271,
+    "largest_weak_efficiency_percent": 23.984670655344924,
+    "largest_weak_conventional_throughput_speedup": 2.3984670655344926,
+    "largest_weak_assignment_scaled_speedup": 0.23884738209447415,
+    "interpretation": "Compare strong and weak efficiencies empirically. Weak throughput may improve when larger per-process work amortizes barriers; no monotonic improvement is assumed."
+  },
+  "weak_scaling_formula_note": "Task 3.2 prints P*Work(1)*T1/(Work(P)*Tp). This approaches T1/Tp when Work(P) is P*Work(1). It is recorded literally as assignment_scaled_speedup. Conventional throughput speedup is Work(P)/Work(1)*T1/Tp, with efficiency equal to throughput speedup/P."
+}

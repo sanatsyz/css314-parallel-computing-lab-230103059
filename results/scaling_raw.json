@@ -1,0 +1,1173 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-30T04:58:13.938153+00:00",
+  "environment": {
+    "numpy_version": "2.5.4",
+    "python_version": "3.14.3",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O"
+  },
+  "benchmark_mode": "full",
+  "student_id": "30103059",
+  "seed": 91405,
+  "salted_n": 1536,
+  "base_n": 1536,
+  "steps": 100,
+  "repeats": 3,
+  "process_counts": [
+    1,
+    2,
+    4,
+    8,
+    10
+  ],
+  "multiprocessing_start_method": "spawn",
+  "timing_scope": "kernel wall time includes start/finish and per-step barriers; excludes process startup, initialization and one warm-up update per worker",
+  "end_to_end_scope": "shared-memory allocation, initialization, spawn/import, warmup, kernel, output copy, joining and cleanup; excludes independent serial validation and saving arrays",
+  "work_definition": "(N-2)^2 * steps interior cell updates",
+  "strong": [
+    {
+      "n": 1536,
+      "workers": 1,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.7946997079998255,
+          "startup_and_initialization_seconds": 0.10501291701802984,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.9116497499926481,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.7948022919881623,
+          "startup_and_initialization_seconds": 0.0919969160167966,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.8984572080080397,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.7929614590248093,
+          "startup_and_initialization_seconds": 0.09212237497558817,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.8963306249934249,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.7946997079998255,
+      "minimum_kernel_seconds": 0.7929614590248093,
+      "maximum_kernel_seconds": 0.7948022919881623,
+      "median_end_to_end_seconds": 0.8984572080080397,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_strong_p1/manifest.json"
+    },
+    {
+      "n": 1536,
+      "workers": 2,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.6159093340102118,
+          "startup_and_initialization_seconds": 0.10726470800000243,
+          "workers": 2,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              768
+            ],
+            [
+              768,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7382698750006966,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.587850250012707,
+          "startup_and_initialization_seconds": 0.18705300000146963,
+          "workers": 2,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              768
+            ],
+            [
+              768,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7905376250273548,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.5677996659942437,
+          "startup_and_initialization_seconds": 0.09676129202125594,
+          "workers": 2,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              768
+            ],
+            [
+              768,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.6805930830014404,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.587850250012707,
+      "minimum_kernel_seconds": 0.5677996659942437,
+      "maximum_kernel_seconds": 0.6159093340102118,
+      "median_end_to_end_seconds": 0.7382698750006966,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_strong_p2/manifest.json"
+    },
+    {
+      "n": 1536,
+      "workers": 4,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.5707295839965809,
+          "startup_and_initialization_seconds": 0.09172870797920041,
+          "workers": 4,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              385
+            ],
+            [
+              385,
+              769
+            ],
+            [
+              769,
+              1152
+            ],
+            [
+              1152,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.6911442919808906,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.530468666984234,
+          "startup_and_initialization_seconds": 0.11596275001647882,
+          "workers": 4,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              385
+            ],
+            [
+              385,
+              769
+            ],
+            [
+              769,
+              1152
+            ],
+            [
+              1152,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.6671108750160784,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.5830104170017876,
+          "startup_and_initialization_seconds": 0.10567699998500757,
+          "workers": 4,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              385
+            ],
+            [
+              385,
+              769
+            ],
+            [
+              769,
+              1152
+            ],
+            [
+              1152,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7187494579993654,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.5707295839965809,
+      "minimum_kernel_seconds": 0.530468666984234,
+      "maximum_kernel_seconds": 0.5830104170017876,
+      "median_end_to_end_seconds": 0.6911442919808906,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_strong_p4/manifest.json"
+    },
+    {
+      "n": 1536,
+      "workers": 8,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.5770894589950331,
+          "startup_and_initialization_seconds": 0.1888003330095671,
+          "workers": 8,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              193
+            ],
+            [
+              193,
+              385
+            ],
+            [
+              385,
+              577
+            ],
+            [
+              577,
+              769
+            ],
+            [
+              769,
+              961
+            ],
+            [
+              961,
+              1153
+            ],
+            [
+              1153,
+              1344
+            ],
+            [
+              1344,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.8166407080134377,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.6007988329802174,
+          "startup_and_initialization_seconds": 0.1563667500158772,
+          "workers": 8,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              193
+            ],
+            [
+              193,
+              385
+            ],
+            [
+              385,
+              577
+            ],
+            [
+              577,
+              769
+            ],
+            [
+              769,
+              961
+            ],
+            [
+              961,
+              1153
+            ],
+            [
+              1153,
+              1344
+            ],
+            [
+              1344,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7950837909884285,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.6307527090248186,
+          "startup_and_initialization_seconds": 0.1605534159753006,
+          "workers": 8,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              193
+            ],
+            [
+              193,
+              385
+            ],
+            [
+              385,
+              577
+            ],
+            [
+              577,
+              769
+            ],
+            [
+              769,
+              961
+            ],
+            [
+              961,
+              1153
+            ],
+            [
+              1153,
+              1344
+            ],
+            [
+              1344,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.8414829579996876,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.6007988329802174,
+      "minimum_kernel_seconds": 0.5770894589950331,
+      "maximum_kernel_seconds": 0.6307527090248186,
+      "median_end_to_end_seconds": 0.8166407080134377,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_strong_p8/manifest.json"
+    },
+    {
+      "n": 1536,
+      "workers": 10,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.5676657919830177,
+          "startup_and_initialization_seconds": 0.17612870800076053,
+          "workers": 10,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              155
+            ],
+            [
+              155,
+              309
+            ],
+            [
+              309,
+              463
+            ],
+            [
+              463,
+              617
+            ],
+            [
+              617,
+              770
+            ],
+            [
+              770,
+              923
+            ],
+            [
+              923,
+              1076
+            ],
+            [
+              1076,
+              1229
+            ],
+            [
+              1229,
+              1382
+            ],
+            [
+              1382,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7870754580071662,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.5821322909905575,
+          "startup_and_initialization_seconds": 0.16702491699834354,
+          "workers": 10,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              155
+            ],
+            [
+              155,
+              309
+            ],
+            [
+              309,
+              463
+            ],
+            [
+              463,
+              617
+            ],
+            [
+              617,
+              770
+            ],
+            [
+              770,
+              923
+            ],
+            [
+              923,
+              1076
+            ],
+            [
+              1076,
+              1229
+            ],
+            [
+              1229,
+              1382
+            ],
+            [
+              1382,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.7897318750037812,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.5796792089822702,
+          "startup_and_initialization_seconds": 0.1659739580063615,
+          "workers": 10,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              155
+            ],
+            [
+              155,
+              309
+            ],
+            [
+              309,
+              463
+            ],
+            [
+              463,
+              617
+            ],
+            [
+              617,
+              770
+            ],
+            [
+              770,
+              923
+            ],
+            [
+              923,
+              1076
+            ],
+            [
+              1076,
+              1229
+            ],
+            [
+              1229,
+              1382
+            ],
+            [
+              1382,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.8009557920158841,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.5796792089822702,
+      "minimum_kernel_seconds": 0.5676657919830177,
+      "maximum_kernel_seconds": 0.5821322909905575,
+      "median_end_to_end_seconds": 0.7897318750037812,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_strong_p10/manifest.json"
+    }
+  ],
+  "weak": [
+    {
+      "n": 1536,
+      "workers": 1,
+      "steps": 100,
+      "work_cell_updates": 235315600,
+      "samples": [
+        {
+          "kernel_seconds": 0.8028179169923533,
+          "startup_and_initialization_seconds": 0.09934912499738857,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.9141553750087041,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.9477902500075288,
+          "startup_and_initialization_seconds": 0.09113654200336896,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.0590620000148192,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.9112435419810936,
+          "startup_and_initialization_seconds": 0.1060471250093542,
+          "workers": 1,
+          "n": 1536,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1535
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.0295933749875985,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.9112435419810936,
+      "minimum_kernel_seconds": 0.8028179169923533,
+      "maximum_kernel_seconds": 0.9477902500075288,
+      "median_end_to_end_seconds": 1.0295933749875985,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_weak_p1/manifest.json"
+    },
+    {
+      "n": 2173,
+      "workers": 2,
+      "steps": 100,
+      "work_cell_updates": 471324100,
+      "samples": [
+        {
+          "kernel_seconds": 0.8939222500193864,
+          "startup_and_initialization_seconds": 0.12224295898340642,
+          "workers": 2,
+          "n": 2173,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1087
+            ],
+            [
+              1087,
+              2172
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.0351634999969974,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.944206459011184,
+          "startup_and_initialization_seconds": 0.1287430829834193,
+          "workers": 2,
+          "n": 2173,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1087
+            ],
+            [
+              1087,
+              2172
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.094959874986671,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 0.8388356670038775,
+          "startup_and_initialization_seconds": 0.1022886659775395,
+          "workers": 2,
+          "n": 2173,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              1087
+            ],
+            [
+              1087,
+              2172
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 0.955836957989959,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 0.8939222500193864,
+      "minimum_kernel_seconds": 0.8388356670038775,
+      "maximum_kernel_seconds": 0.944206459011184,
+      "median_end_to_end_seconds": 1.0351634999969974,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_weak_p2/manifest.json"
+    },
+    {
+      "n": 3072,
+      "workers": 4,
+      "steps": 100,
+      "work_cell_updates": 942490000,
+      "samples": [
+        {
+          "kernel_seconds": 1.8314886669977568,
+          "startup_and_initialization_seconds": 0.13335579200065695,
+          "workers": 4,
+          "n": 3072,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              769
+            ],
+            [
+              769,
+              1537
+            ],
+            [
+              1537,
+              2304
+            ],
+            [
+              2304,
+              3071
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.9992468339914922,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 1.4159767919918522,
+          "startup_and_initialization_seconds": 0.14496008300920948,
+          "workers": 4,
+          "n": 3072,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              769
+            ],
+            [
+              769,
+              1537
+            ],
+            [
+              1537,
+              2304
+            ],
+            [
+              2304,
+              3071
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.58992312499322,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 1.5113763329864014,
+          "startup_and_initialization_seconds": 0.14923958401777782,
+          "workers": 4,
+          "n": 3072,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              769
+            ],
+            [
+              769,
+              1537
+            ],
+            [
+              1537,
+              2304
+            ],
+            [
+              2304,
+              3071
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 1.6848687090096064,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 1.5113763329864014,
+      "minimum_kernel_seconds": 1.4159767919918522,
+      "maximum_kernel_seconds": 1.8314886669977568,
+      "median_end_to_end_seconds": 1.6848687090096064,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_weak_p4/manifest.json"
+    },
+    {
+      "n": 4345,
+      "workers": 8,
+      "steps": 100,
+      "work_cell_updates": 1886164900,
+      "samples": [
+        {
+          "kernel_seconds": 2.9561694580188487,
+          "startup_and_initialization_seconds": 0.39052679197629914,
+          "workers": 8,
+          "n": 4345,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              544
+            ],
+            [
+              544,
+              1087
+            ],
+            [
+              1087,
+              1630
+            ],
+            [
+              1630,
+              2173
+            ],
+            [
+              2173,
+              2716
+            ],
+            [
+              2716,
+              3259
+            ],
+            [
+              3259,
+              3802
+            ],
+            [
+              3802,
+              4344
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 3.3900884999893606,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 2.9398542500275653,
+          "startup_and_initialization_seconds": 0.23125499999150634,
+          "workers": 8,
+          "n": 4345,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              544
+            ],
+            [
+              544,
+              1087
+            ],
+            [
+              1087,
+              1630
+            ],
+            [
+              1630,
+              2173
+            ],
+            [
+              2173,
+              2716
+            ],
+            [
+              2716,
+              3259
+            ],
+            [
+              3259,
+              3802
+            ],
+            [
+              3802,
+              4344
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 3.2137198339914903,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 2.9703053330013063,
+          "startup_and_initialization_seconds": 0.19466691699926741,
+          "workers": 8,
+          "n": 4345,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              544
+            ],
+            [
+              544,
+              1087
+            ],
+            [
+              1087,
+              1630
+            ],
+            [
+              1630,
+              2173
+            ],
+            [
+              2173,
+              2716
+            ],
+            [
+              2716,
+              3259
+            ],
+            [
+              3259,
+              3802
+            ],
+            [
+              3802,
+              4344
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 3.20689895801479,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 2.9561694580188487,
+      "minimum_kernel_seconds": 2.9398542500275653,
+      "maximum_kernel_seconds": 2.9703053330013063,
+      "median_end_to_end_seconds": 3.2137198339914903,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_weak_p8/manifest.json"
+    },
+    {
+      "n": 4858,
+      "workers": 10,
+      "steps": 100,
+      "work_cell_updates": 2358073600,
+      "samples": [
+        {
+          "kernel_seconds": 3.7282689590065274,
+          "startup_and_initialization_seconds": 0.33016187499742955,
+          "workers": 10,
+          "n": 4858,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              487
+            ],
+            [
+              487,
+              973
+            ],
+            [
+              973,
+              1459
+            ],
+            [
+              1459,
+              1945
+            ],
+            [
+              1945,
+              2431
+            ],
+            [
+              2431,
+              2917
+            ],
+            [
+              2917,
+              3402
+            ],
+            [
+              3402,
+              3887
+            ],
+            [
+              3887,
+              4372
+            ],
+            [
+              4372,
+              4857
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 4.1150363750057295,
+          "repeat": 1,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 3.8072144580073655,
+          "startup_and_initialization_seconds": 0.31184404200757854,
+          "workers": 10,
+          "n": 4858,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              487
+            ],
+            [
+              487,
+              973
+            ],
+            [
+              973,
+              1459
+            ],
+            [
+              1459,
+              1945
+            ],
+            [
+              1945,
+              2431
+            ],
+            [
+              2431,
+              2917
+            ],
+            [
+              2917,
+              3402
+            ],
+            [
+              3402,
+              3887
+            ],
+            [
+              3887,
+              4372
+            ],
+            [
+              4372,
+              4857
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 4.170377041999018,
+          "repeat": 2,
+          "max_absolute_error": 0.0
+        },
+        {
+          "kernel_seconds": 4.1072025839821436,
+          "startup_and_initialization_seconds": 0.2859420000168029,
+          "workers": 10,
+          "n": 4858,
+          "steps": 100,
+          "row_ranges_exclusive_stop": [
+            [
+              1,
+              487
+            ],
+            [
+              487,
+              973
+            ],
+            [
+              973,
+              1459
+            ],
+            [
+              1459,
+              1945
+            ],
+            [
+              1945,
+              2431
+            ],
+            [
+              2431,
+              2917
+            ],
+            [
+              2917,
+              3402
+            ],
+            [
+              3402,
+              3887
+            ],
+            [
+              3887,
+              4372
+            ],
+            [
+              4372,
+              4857
+            ]
+          ],
+          "warmup_updates_per_worker": 1,
+          "end_to_end_seconds": 4.461636624997482,
+          "repeat": 3,
+          "max_absolute_error": 0.0
+        }
+      ],
+      "median_kernel_seconds": 3.8072144580073655,
+      "minimum_kernel_seconds": 3.7282689590065274,
+      "maximum_kernel_seconds": 4.1072025839821436,
+      "median_end_to_end_seconds": 4.170377041999018,
+      "max_absolute_error": 0.0,
+      "array_path": "arrays/scaling_weak_p10/manifest.json"
+    }
+  ],
+  "amdahl_fit": {
+    "identifiable": true,
+    "method": "least squares on inverse speedup with measured T1 fixed",
+    "unconstrained_serial_fraction": 0.6656286685356515,
+    "bounded_serial_fraction": 0.6656286685356515,
+    "unconstrained_asymptotic_speedup": 1.5023391378258213,
+    "bounded_asymptotic_speedup": 1.5023391378258213,
+    "bounded_zero_ceiling_interpretation": null,
+    "inverse_speedup_residual_sum_of_squares": 0.012914248734026839,
+    "physical_range_violation": false,
+    "caveat": "An effective fit includes communication, barriers, heterogeneous cores and noise. Values outside [0,1] indicate model mismatch; the bounded fit is a constrained summary."
+  }
+}

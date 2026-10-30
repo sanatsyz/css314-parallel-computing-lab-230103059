@@ -1,0 +1,97 @@
+{
+  "format": "lossless-float64-row-parts-v1",
+  "shape": [
+    4858,
+    4858
+  ],
+  "dtype": "float64",
+  "max_uncompressed_part_bytes": 16777216,
+  "sha256_float64_little_endian": "f404e9ebabfada234fcc5d875938815cb0ef86d7f894a40715eb1576bbe57bb1",
+  "digest_encoding": "C-order little-endian float64 exact bytes, without salt or rounding",
+  "parts": [
+    {
+      "path": "part-0000.npz",
+      "row_start": 0,
+      "row_stop": 431,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "289fdea6a1608e5f7df51bbe72a2c2b13c1334ce3282b86ef506b57686e30c6c"
+    },
+    {
+      "path": "part-0001.npz",
+      "row_start": 431,
+      "row_stop": 862,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "4b4379487acce00b527a9f8f110eddf96b2e773901e15b42cf08b3b8e7c6db83"
+    },
+    {
+      "path": "part-0002.npz",
+      "row_start": 862,
+      "row_stop": 1293,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "1d414536d874f1a5c8254a6458072ee335b4dd5856e4ca907c7fed448dbc83c2"
+    },
+    {
+      "path": "part-0003.npz",
+      "row_start": 1293,
+      "row_stop": 1724,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "f0201bc1c14a603dcc3a8e87ce03a8c4df69d93739ed3daa12c5ec95d4e8ba2c"
+    },
+    {
+      "path": "part-0004.npz",
+      "row_start": 1724,
+      "row_stop": 2155,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "c1af8db7e2683758ac11b43825d6da63c95f2279bf4b784c04833a05fc7d9219"
+    },
+    {
+      "path": "part-0005.npz",
+      "row_start": 2155,
+      "row_stop": 2586,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "0a7565d089f1e3c5f3ba6b344e678bd89df1807a684d56c5096dc1dc77584830"
+    },
+    {
+      "path": "part-0006.npz",
+      "row_start": 2586,
+      "row_stop": 3017,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "ba7ce8bfbbc077c7d82fc30a7f19c4d4ec27c364617e7cd2cfed526b7d2aba4e"
+    },
+    {
+      "path": "part-0007.npz",
+      "row_start": 3017,
+      "row_stop": 3448,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "eae8d6fde70226a73e82414d054bec96ac76b5964deaae1fa19faf33ecbbbb23"
+    },
+    {
+      "path": "part-0008.npz",
+      "row_start": 3448,
+      "row_stop": 3879,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "f3fb6b10afaa46400ba6012919ab5e87beba6c6a68e0540b7dc0f24abf7f1bf7"
+    },
+    {
+      "path": "part-0009.npz",
+      "row_start": 3879,
+      "row_stop": 4310,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "5b58661f2d01e244b8c337c4a2c7c19b347b82fe85cba48c0122095241209ac7"
+    },
+    {
+      "path": "part-0010.npz",
+      "row_start": 4310,
+      "row_stop": 4741,
+      "uncompressed_value_bytes": 16750384,
+      "sha256_float64_little_endian": "aa837b9f5c76a6260d4257d826dd138ddafa6d619c80a42b2ed7f5d6a73ebc55"
+    },
+    {
+      "path": "part-0011.npz",
+      "row_start": 4741,
+      "row_stop": 4858,
+      "uncompressed_value_bytes": 4547088,
+      "sha256_float64_little_endian": "5a5e23f680e482b47b17ba16978e792fa3229a84d179902ae806ac5288fe10be"
+    }
+  ]
+}

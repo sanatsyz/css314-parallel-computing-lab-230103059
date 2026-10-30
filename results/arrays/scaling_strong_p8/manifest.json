@@ -1,0 +1,27 @@
+{
+  "format": "lossless-float64-row-parts-v1",
+  "shape": [
+    1536,
+    1536
+  ],
+  "dtype": "float64",
+  "max_uncompressed_part_bytes": 16777216,
+  "sha256_float64_little_endian": "cc3555ccc5cf4050ec90c864eabe39cd8a334f701241400eadc7792e7ece56b6",
+  "digest_encoding": "C-order little-endian float64 exact bytes, without salt or rounding",
+  "parts": [
+    {
+      "path": "part-0000.npz",
+      "row_start": 0,
+      "row_stop": 1365,
+      "uncompressed_value_bytes": 16773120,
+      "sha256_float64_little_endian": "0f037d811463717af0abf80decd6304e4588604c1d17f74b99321f6ebf8eebdd"
+    },
+    {
+      "path": "part-0001.npz",
+      "row_start": 1365,
+      "row_stop": 1536,
+      "uncompressed_value_bytes": 2101248,
+      "sha256_float64_little_endian": "41f13763a491d8d61b25f50d11066b5491867c108683e9b9ec8d8ba29b099ad5"
+    }
+  ]
+}

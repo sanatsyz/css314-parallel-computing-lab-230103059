@@ -1,0 +1,41 @@
+{
+  "recorded_at_utc": "2026-10-30T09:49:12.617391+00:00",
+  "cpu_model": "Apple M4",
+  "architecture": "arm64",
+  "os": "Darwin",
+  "kernel_version": "27.0.0",
+  "physical_cores": 10,
+  "logical_threads": 10,
+  "cache_line_bytes": 128,
+  "python": {
+    "version": "3.14.3",
+    "implementation": "CPython"
+  },
+  "timer": {
+    "name": "perf_counter",
+    "implementation": "mach_absolute_time()",
+    "resolution_seconds": 4.166666666666666e-08,
+    "monotonic": true
+  },
+  "multiprocessing_start_method": "spawn",
+  "performance_levels": [
+    {
+      "name": "Performance",
+      "physical_cores": 4,
+      "l1_data_bytes": 131072,
+      "l2_bytes": 16777216
+    },
+    {
+      "name": "Efficiency",
+      "physical_cores": 6,
+      "l1_data_bytes": 65536,
+      "l2_bytes": 4194304
+    }
+  ],
+  "cpu_affinity": "not pinned; the operating system schedules workers",
+  "hardware_performance_counters": "not collected",
+  "os_cpu_count": 10,
+  "multiprocessing_cpu_count": 10,
+  "available_cpu_affinity": null,
+  "affinity_note": "No worker affinity applied; macOS has no os.sched_getaffinity API."
+}

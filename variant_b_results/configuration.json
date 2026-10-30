@@ -1,0 +1,32 @@
+{
+  "course": "CSS314",
+  "student_id": "230103059",
+  "branch": "variant-b-230103059",
+  "handout": "CS482 Practice Lab Handout (Variant B).pdf",
+  "workers": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "repeats": 3,
+  "start_method": "spawn",
+  "aggregation": "median elapsed seconds of three full runs per worker count",
+  "experiments_run_sequentially": true,
+  "experiment_a": {
+    "total_items": 1000000,
+    "chunk_sizes": [
+      1,
+      10000
+    ]
+  },
+  "experiment_b": {
+    "total_items": 400000
+  },
+  "experiment_c": {
+    "total_items": 10000000,
+    "batch_size": 10000
+  },
+  "timing_policy": "Fresh pools/processes; startup, IPC and worker shutdown included. A checksum reduction and queue cleanup occur after timing.",
+  "instructor_signoff": "pending"
+}

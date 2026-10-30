@@ -1,0 +1,2900 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "created_utc": "2026-10-30T04:57:11.026110+00:00",
+    "python": "3.14.3 (v3.14.3:323c59a5e34, Feb  3 2026, 11:41:37) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "logical_cpus": 10,
+    "start_method": "spawn",
+    "cache_line_bytes": 128,
+    "cache_line_source": "host profile: /Users/sanatsyz/Desktop/assignment sufi/results/host_profile.json",
+    "iterations_per_worker": 5000000,
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "repeats": 3,
+    "quick_smoke_test": false,
+    "schedule_seed": 482,
+    "variants_byte_stride": {
+      "unpadded": 8,
+      "padded": 128,
+      "privatized": 8,
+      "padded_64": 64
+    },
+    "native": {
+      "source": "src/native/false_sharing.c",
+      "source_sha256": "7240d44766e1ff230d9e3a557d2f4821f26f7f1de9d4707d2ee535ad1faa3493",
+      "compile_command": [
+        "cc",
+        "-O3",
+        "-std=c11",
+        "-fPIC",
+        "-dynamiclib",
+        "/Users/sanatsyz/Desktop/assignment sufi/src/native/false_sharing.c",
+        "-o",
+        "/Users/sanatsyz/Desktop/assignment sufi/.native-cache/false_sharing_09c08e325795ec18.dylib"
+      ],
+      "compiler_version": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "cache_path": "/Users/sanatsyz/Desktop/assignment sufi/.native-cache/false_sharing_09c08e325795ec18.dylib"
+    },
+    "workload": "weak scaling: each worker performs K increments, total work P*K",
+    "timing": "parent start-event release to latest worker finish; spawn, compilation, and process exit excluded; event wakeup and privatized final locked write included",
+    "aggregation": "median over repeats; each variant uses its own P=1 median baseline",
+    "requested_speedup_formula": "S_requested = T1 / Tp (unequal total work)",
+    "karp_flatt_formula": "e_requested = (1 / S_requested - 1/P) / (1 - 1/P)",
+    "karp_flatt_interpretation": "The assignment requests this formula despite fixed K per worker. These are NOT strong-scaling serial-fraction estimates: ideal weak scaling yields e_requested=1, not 0.",
+    "throughput_speedup_formula": "S_throughput = P * T1 / Tp; weak_scaling_efficiency = T1 / Tp",
+    "measurement_caveats": [
+      "Native volatile C loops, not Python interpreted increments; every shared increment reads and writes memory.",
+      "Counters are aligned; unpadded P<=8 fits within the first 64 bytes. padded uses at least one detected hardware cache line.",
+      "padded_64 is additionally reported when the detected line differs from 64 bytes; 64-byte strides do not isolate a 128-byte line.",
+      "RawArray is lock-free in the hot loop; privatized uses one lock only for each worker's final publication.",
+      "OS scheduling, heterogeneous cores, power management, and unrelated load can affect measurements; no observed collapse is assumed or fabricated.",
+      "Very short native loops may be dominated by event wakeup; inspect repeat spread and per-worker native loop times."
+    ]
+  },
+  "samples": [
+    {
+      "variant": "padded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0
+      ],
+      "seconds": 0.0043495,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187428908600750,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187428909712791,
+          "finished_ns": 187428912950250,
+          "loop_seconds": 0.003237459,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187428909718250,
+          "finished_ns": 187428910899041,
+          "loop_seconds": 0.001180791,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 1
+    },
+    {
+      "variant": "unpadded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002922625,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187428985296958,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187428986369666,
+          "finished_ns": 187428988219583,
+          "loop_seconds": 0.001849917,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 2
+    },
+    {
+      "variant": "unpadded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.007801417,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429074114166,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429075044375,
+          "finished_ns": 187429081604083,
+          "loop_seconds": 0.006559708,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429075058041,
+          "finished_ns": 187429081915583,
+          "loop_seconds": 0.006857542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187429075089916,
+          "finished_ns": 187429081770125,
+          "loop_seconds": 0.006680209,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187429075023208,
+          "finished_ns": 187429081680916,
+          "loop_seconds": 0.006657708,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 3
+    },
+    {
+      "variant": "unpadded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.016445708,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429218505125,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429223524500,
+          "finished_ns": 187429232948333,
+          "loop_seconds": 0.009423833,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429223566375,
+          "finished_ns": 187429234577958,
+          "loop_seconds": 0.011011583,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187429223629958,
+          "finished_ns": 187429233223041,
+          "loop_seconds": 0.009593083,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187429223742333,
+          "finished_ns": 187429234476875,
+          "loop_seconds": 0.010734542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187429223285708,
+          "finished_ns": 187429234950833,
+          "loop_seconds": 0.011665125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187429223447541,
+          "finished_ns": 187429233087583,
+          "loop_seconds": 0.009640042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187429223351458,
+          "finished_ns": 187429231778458,
+          "loop_seconds": 0.008427,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187429223406000,
+          "finished_ns": 187429234885416,
+          "loop_seconds": 0.011479416,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 4
+    },
+    {
+      "variant": "padded_64",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64
+      ],
+      "seconds": 0.0045215,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429324556666,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429325532750,
+          "finished_ns": 187429329078166,
+          "loop_seconds": 0.003545416,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429325540500,
+          "finished_ns": 187429328755791,
+          "loop_seconds": 0.003215291,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 5
+    },
+    {
+      "variant": "padded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.011973208,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429440902708,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429445005625,
+          "finished_ns": 187429449829458,
+          "loop_seconds": 0.004823833,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429444945625,
+          "finished_ns": 187429449449125,
+          "loop_seconds": 0.0045035,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187429444878875,
+          "finished_ns": 187429452229666,
+          "loop_seconds": 0.007350791,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187429444849416,
+          "finished_ns": 187429449536708,
+          "loop_seconds": 0.004687292,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187429445022625,
+          "finished_ns": 187429452875916,
+          "loop_seconds": 0.007853291,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187429444985125,
+          "finished_ns": 187429447930083,
+          "loop_seconds": 0.002944958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187429444964083,
+          "finished_ns": 187429448819125,
+          "loop_seconds": 0.003855042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187429444864958,
+          "finished_ns": 187429448409250,
+          "loop_seconds": 0.003544292,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 6
+    },
+    {
+      "variant": "privatized",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.013484625,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429571263458,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429575317750,
+          "finished_ns": 187429582254375,
+          "loop_seconds": 0.006936625,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429575294833,
+          "finished_ns": 187429578906875,
+          "loop_seconds": 0.003612042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187429575339625,
+          "finished_ns": 187429584748083,
+          "loop_seconds": 0.009408458,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187429575193208,
+          "finished_ns": 187429582725125,
+          "loop_seconds": 0.007531917,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187429575173458,
+          "finished_ns": 187429578137791,
+          "loop_seconds": 0.002964333,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187429575267708,
+          "finished_ns": 187429578782791,
+          "loop_seconds": 0.003515083,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187429575152541,
+          "finished_ns": 187429579677541,
+          "loop_seconds": 0.004525,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187429575212750,
+          "finished_ns": 187429580981666,
+          "loop_seconds": 0.005768916,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 7
+    },
+    {
+      "variant": "padded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002875917,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429668976833,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429670149875,
+          "finished_ns": 187429671852750,
+          "loop_seconds": 0.001702875,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 8
+    },
+    {
+      "variant": "padded_64",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.00294575,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429734411833,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429735527291,
+          "finished_ns": 187429737357583,
+          "loop_seconds": 0.001830292,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 9
+    },
+    {
+      "variant": "unpadded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.006083542,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429806337458,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429807370375,
+          "finished_ns": 187429812418833,
+          "loop_seconds": 0.005048458,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187429807379541,
+          "finished_ns": 187429812421000,
+          "loop_seconds": 0.005041459,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 10
+    },
+    {
+      "variant": "privatized",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002730625,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429873001458,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187429874025000,
+          "finished_ns": 187429875732083,
+          "loop_seconds": 0.001707083,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 11
+    },
+    {
+      "variant": "padded_64",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.013937417,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187429999396916,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430003450833,
+          "finished_ns": 187430010248875,
+          "loop_seconds": 0.006798042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430003168000,
+          "finished_ns": 187430011585708,
+          "loop_seconds": 0.008417708,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430003292416,
+          "finished_ns": 187430012155333,
+          "loop_seconds": 0.008862917,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430003231291,
+          "finished_ns": 187430013334333,
+          "loop_seconds": 0.010103042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187430003211291,
+          "finished_ns": 187430009246875,
+          "loop_seconds": 0.006035584,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187430003657583,
+          "finished_ns": 187430005765208,
+          "loop_seconds": 0.002107625,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187430003193375,
+          "finished_ns": 187430013019583,
+          "loop_seconds": 0.009826208,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187430003273500,
+          "finished_ns": 187430012470166,
+          "loop_seconds": 0.009196666,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 12
+    },
+    {
+      "variant": "privatized",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.008739083,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430119949333,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430121232625,
+          "finished_ns": 187430125629166,
+          "loop_seconds": 0.004396541,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430121175500,
+          "finished_ns": 187430124995958,
+          "loop_seconds": 0.003820458,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430121184958,
+          "finished_ns": 187430124939875,
+          "loop_seconds": 0.003754917,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430121191291,
+          "finished_ns": 187430128688416,
+          "loop_seconds": 0.007497125,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 13
+    },
+    {
+      "variant": "padded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.006375375,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430208038416,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430209890291,
+          "finished_ns": 187430211909583,
+          "loop_seconds": 0.002019292,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430209879000,
+          "finished_ns": 187430214077458,
+          "loop_seconds": 0.004198458,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430209898083,
+          "finished_ns": 187430214413791,
+          "loop_seconds": 0.004515708,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430209909250,
+          "finished_ns": 187430213374791,
+          "loop_seconds": 0.003465541,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 14
+    },
+    {
+      "variant": "padded_64",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.00797775,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430292922666,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430296150583,
+          "finished_ns": 187430298280000,
+          "loop_seconds": 0.002129417,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430296137416,
+          "finished_ns": 187430300900416,
+          "loop_seconds": 0.004763,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430296126625,
+          "finished_ns": 187430297496375,
+          "loop_seconds": 0.00136975,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430296116166,
+          "finished_ns": 187430298840166,
+          "loop_seconds": 0.002724,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 15
+    },
+    {
+      "variant": "privatized",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.003469292,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430393625416,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430394623291,
+          "finished_ns": 187430396534416,
+          "loop_seconds": 0.001911125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430394632750,
+          "finished_ns": 187430397094708,
+          "loop_seconds": 0.002461958,
+          "count": 5000000
+        }
+      ],
+      "repeat": 1,
+      "execution_order": 16
+    },
+    {
+      "variant": "padded_64",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.013081208,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430507900083,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430512247708,
+          "finished_ns": 187430517815541,
+          "loop_seconds": 0.005567833,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430511981666,
+          "finished_ns": 187430515333166,
+          "loop_seconds": 0.0033515,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430512148541,
+          "finished_ns": 187430519207916,
+          "loop_seconds": 0.007059375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430512178791,
+          "finished_ns": 187430520981291,
+          "loop_seconds": 0.0088025,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187430512056375,
+          "finished_ns": 187430518716541,
+          "loop_seconds": 0.006660166,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187430511988000,
+          "finished_ns": 187430519183333,
+          "loop_seconds": 0.007195333,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187430512086083,
+          "finished_ns": 187430519114041,
+          "loop_seconds": 0.007027958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187430512110958,
+          "finished_ns": 187430515342583,
+          "loop_seconds": 0.003231625,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 17
+    },
+    {
+      "variant": "privatized",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.0037975,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430595131833,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430596125625,
+          "finished_ns": 187430597428250,
+          "loop_seconds": 0.001302625,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430596130541,
+          "finished_ns": 187430598929333,
+          "loop_seconds": 0.002798792,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 18
+    },
+    {
+      "variant": "unpadded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.007848125,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430671180458,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430672424041,
+          "finished_ns": 187430678669375,
+          "loop_seconds": 0.006245334,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430672416916,
+          "finished_ns": 187430678558916,
+          "loop_seconds": 0.006142,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430672446625,
+          "finished_ns": 187430678677833,
+          "loop_seconds": 0.006231208,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430672440375,
+          "finished_ns": 187430679028583,
+          "loop_seconds": 0.006588208,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 19
+    },
+    {
+      "variant": "padded_64",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64
+      ],
+      "seconds": 0.002695917,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430744745541,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430745816291,
+          "finished_ns": 187430747432666,
+          "loop_seconds": 0.001616375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430745822208,
+          "finished_ns": 187430747441458,
+          "loop_seconds": 0.00161925,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 20
+    },
+    {
+      "variant": "padded_64",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.003888417,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430807765583,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430808866375,
+          "finished_ns": 187430811654000,
+          "loop_seconds": 0.002787625,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 21
+    },
+    {
+      "variant": "padded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002804167,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430871318333,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430872398625,
+          "finished_ns": 187430874122500,
+          "loop_seconds": 0.001723875,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 22
+    },
+    {
+      "variant": "unpadded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.013900875,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187430974738250,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187430977424250,
+          "finished_ns": 187430985601208,
+          "loop_seconds": 0.008176958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187430977449250,
+          "finished_ns": 187430985089041,
+          "loop_seconds": 0.007639791,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187430977371125,
+          "finished_ns": 187430986426166,
+          "loop_seconds": 0.009055041,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187430977488583,
+          "finished_ns": 187430987717875,
+          "loop_seconds": 0.010229292,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187430977385541,
+          "finished_ns": 187430988639125,
+          "loop_seconds": 0.011253584,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187430977468291,
+          "finished_ns": 187430985422791,
+          "loop_seconds": 0.0079545,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187430977363791,
+          "finished_ns": 187430988233583,
+          "loop_seconds": 0.010869792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187430977494458,
+          "finished_ns": 187430988469458,
+          "loop_seconds": 0.010975,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 23
+    },
+    {
+      "variant": "privatized",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.012912708,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431135565375,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431140943375,
+          "finished_ns": 187431143019000,
+          "loop_seconds": 0.002075625,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431140911541,
+          "finished_ns": 187431146777666,
+          "loop_seconds": 0.005866125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187431140816916,
+          "finished_ns": 187431143298541,
+          "loop_seconds": 0.002481625,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187431140782083,
+          "finished_ns": 187431148478083,
+          "loop_seconds": 0.007696,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 24
+    },
+    {
+      "variant": "padded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.006877458,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431260088958,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431261371583,
+          "finished_ns": 187431264907541,
+          "loop_seconds": 0.003535958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431261337208,
+          "finished_ns": 187431263816333,
+          "loop_seconds": 0.002479125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187431261326291,
+          "finished_ns": 187431265601041,
+          "loop_seconds": 0.00427475,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187431261392291,
+          "finished_ns": 187431266966416,
+          "loop_seconds": 0.005574125,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 25
+    },
+    {
+      "variant": "padded_64",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.006235334,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431344837166,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431347164000,
+          "finished_ns": 187431349736291,
+          "loop_seconds": 0.002572291,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431347138208,
+          "finished_ns": 187431350498458,
+          "loop_seconds": 0.00336025,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187431347125958,
+          "finished_ns": 187431351072500,
+          "loop_seconds": 0.003946542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187431347109333,
+          "finished_ns": 187431349082666,
+          "loop_seconds": 0.001973333,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 26
+    },
+    {
+      "variant": "privatized",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.011605459,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431472015166,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431475053666,
+          "finished_ns": 187431480193000,
+          "loop_seconds": 0.005139334,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431475164750,
+          "finished_ns": 187431482580041,
+          "loop_seconds": 0.007415291,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187431475146416,
+          "finished_ns": 187431482636083,
+          "loop_seconds": 0.007489667,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187431475096958,
+          "finished_ns": 187431476714041,
+          "loop_seconds": 0.001617083,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187431475084708,
+          "finished_ns": 187431483620625,
+          "loop_seconds": 0.008535917,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187431475071250,
+          "finished_ns": 187431480475458,
+          "loop_seconds": 0.005404208,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187431475130458,
+          "finished_ns": 187431482992666,
+          "loop_seconds": 0.007862208,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187431475110166,
+          "finished_ns": 187431478671041,
+          "loop_seconds": 0.003560875,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 27
+    },
+    {
+      "variant": "privatized",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002668375,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431560393250,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431561451458,
+          "finished_ns": 187431563061625,
+          "loop_seconds": 0.001610167,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 28
+    },
+    {
+      "variant": "unpadded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.003349084,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431627255166,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431628345500,
+          "finished_ns": 187431630604250,
+          "loop_seconds": 0.00225875,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 29
+    },
+    {
+      "variant": "padded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.015226291,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431764777500,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431769859750,
+          "finished_ns": 187431778388541,
+          "loop_seconds": 0.008528791,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431769432791,
+          "finished_ns": 187431780003791,
+          "loop_seconds": 0.010571,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187431769684041,
+          "finished_ns": 187431776241708,
+          "loop_seconds": 0.006557667,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187431769766458,
+          "finished_ns": 187431774567166,
+          "loop_seconds": 0.004800708,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187431769749625,
+          "finished_ns": 187431774324416,
+          "loop_seconds": 0.004574791,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187431769404916,
+          "finished_ns": 187431775039333,
+          "loop_seconds": 0.005634417,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187431769458375,
+          "finished_ns": 187431773392375,
+          "loop_seconds": 0.003934,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187431769480875,
+          "finished_ns": 187431773288708,
+          "loop_seconds": 0.003807833,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 30
+    },
+    {
+      "variant": "padded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0
+      ],
+      "seconds": 0.00678225,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187431900145541,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187431901022958,
+          "finished_ns": 187431902926125,
+          "loop_seconds": 0.001903167,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187431901020291,
+          "finished_ns": 187431906927791,
+          "loop_seconds": 0.0059075,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 31
+    },
+    {
+      "variant": "unpadded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.010283459,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432040239666,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432041412333,
+          "finished_ns": 187432050523125,
+          "loop_seconds": 0.009110792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432041390375,
+          "finished_ns": 187432049697916,
+          "loop_seconds": 0.008307541,
+          "count": 5000000
+        }
+      ],
+      "repeat": 2,
+      "execution_order": 32
+    },
+    {
+      "variant": "padded_64",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.006855708,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432142658625,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432145322916,
+          "finished_ns": 187432147931291,
+          "loop_seconds": 0.002608375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432145338416,
+          "finished_ns": 187432149283458,
+          "loop_seconds": 0.003945042,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432145311958,
+          "finished_ns": 187432148110750,
+          "loop_seconds": 0.002798792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432145283958,
+          "finished_ns": 187432149514333,
+          "loop_seconds": 0.004230375,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 33
+    },
+    {
+      "variant": "unpadded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.015559167,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432263552958,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432268183583,
+          "finished_ns": 187432278583291,
+          "loop_seconds": 0.010399708,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432267964041,
+          "finished_ns": 187432275287833,
+          "loop_seconds": 0.007323792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432268156333,
+          "finished_ns": 187432278513708,
+          "loop_seconds": 0.010357375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432268127583,
+          "finished_ns": 187432275318458,
+          "loop_seconds": 0.007190875,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187432268030333,
+          "finished_ns": 187432276017500,
+          "loop_seconds": 0.007987167,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187432268017291,
+          "finished_ns": 187432275584833,
+          "loop_seconds": 0.007567542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187432268094541,
+          "finished_ns": 187432279112125,
+          "loop_seconds": 0.011017584,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187432267979541,
+          "finished_ns": 187432276070291,
+          "loop_seconds": 0.00809075,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 34
+    },
+    {
+      "variant": "padded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.004025459,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432358966291,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432360121333,
+          "finished_ns": 187432362991750,
+          "loop_seconds": 0.002870417,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 35
+    },
+    {
+      "variant": "padded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.012599584,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432479258666,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432485187875,
+          "finished_ns": 187432489705666,
+          "loop_seconds": 0.004517791,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432485104541,
+          "finished_ns": 187432489572125,
+          "loop_seconds": 0.004467584,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432484968833,
+          "finished_ns": 187432488685375,
+          "loop_seconds": 0.003716542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432485134541,
+          "finished_ns": 187432488554958,
+          "loop_seconds": 0.003420417,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187432485161875,
+          "finished_ns": 187432491318791,
+          "loop_seconds": 0.006156916,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187432485025208,
+          "finished_ns": 187432491505583,
+          "loop_seconds": 0.006480375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187432485004166,
+          "finished_ns": 187432487083708,
+          "loop_seconds": 0.002079542,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187432484928791,
+          "finished_ns": 187432491858250,
+          "loop_seconds": 0.006929459,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 36
+    },
+    {
+      "variant": "padded_64",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64
+      ],
+      "seconds": 0.003677292,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432563472583,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432564448125,
+          "finished_ns": 187432567149875,
+          "loop_seconds": 0.00270175,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432564452416,
+          "finished_ns": 187432566083791,
+          "loop_seconds": 0.001631375,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 37
+    },
+    {
+      "variant": "padded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.005111,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432636648041,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432637741708,
+          "finished_ns": 187432641289375,
+          "loop_seconds": 0.003547667,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432637713416,
+          "finished_ns": 187432641431208,
+          "loop_seconds": 0.003717792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432637702750,
+          "finished_ns": 187432641269583,
+          "loop_seconds": 0.003566833,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432637726541,
+          "finished_ns": 187432641759041,
+          "loop_seconds": 0.0040325,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 38
+    },
+    {
+      "variant": "unpadded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002670417,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432708606083,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432709720875,
+          "finished_ns": 187432711276500,
+          "loop_seconds": 0.001555625,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 39
+    },
+    {
+      "variant": "padded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 128,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        0
+      ],
+      "seconds": 0.002875042,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432772766083,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432773832500,
+          "finished_ns": 187432775429375,
+          "loop_seconds": 0.001596875,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432773843708,
+          "finished_ns": 187432775641125,
+          "loop_seconds": 0.001797417,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 40
+    },
+    {
+      "variant": "unpadded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.007789792,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432849947041,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432851101833,
+          "finished_ns": 187432857599250,
+          "loop_seconds": 0.006497417,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432851111375,
+          "finished_ns": 187432857277916,
+          "loop_seconds": 0.006166541,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432851121833,
+          "finished_ns": 187432857736833,
+          "loop_seconds": 0.006615,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432851132208,
+          "finished_ns": 187432857382708,
+          "loop_seconds": 0.0062505,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 41
+    },
+    {
+      "variant": "privatized",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24,
+        32,
+        40,
+        48,
+        56
+      ],
+      "seconds": 0.01335275,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187432968575250,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187432972907375,
+          "finished_ns": 187432978956708,
+          "loop_seconds": 0.006049333,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187432972864625,
+          "finished_ns": 187432976028625,
+          "loop_seconds": 0.003164,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187432972845458,
+          "finished_ns": 187432975696583,
+          "loop_seconds": 0.002851125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187432972979000,
+          "finished_ns": 187432979014750,
+          "loop_seconds": 0.00603575,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187432972937666,
+          "finished_ns": 187432981928000,
+          "loop_seconds": 0.008990334,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187432972832041,
+          "finished_ns": 187432979935833,
+          "loop_seconds": 0.007103792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187432972813958,
+          "finished_ns": 187432978381916,
+          "loop_seconds": 0.005567958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187432972959750,
+          "finished_ns": 187432978347916,
+          "loop_seconds": 0.005388166,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 42
+    },
+    {
+      "variant": "padded_64",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64
+      ],
+      "seconds": 0.014087083,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433105332875,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433110957875,
+          "finished_ns": 187433116099833,
+          "loop_seconds": 0.005141958,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187433110791250,
+          "finished_ns": 187433117106375,
+          "loop_seconds": 0.006315125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187433110902958,
+          "finished_ns": 187433115991750,
+          "loop_seconds": 0.005088792,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187433110935750,
+          "finished_ns": 187433115771208,
+          "loop_seconds": 0.004835458,
+          "count": 5000000
+        },
+        {
+          "worker_id": 4,
+          "started_ns": 187433110975208,
+          "finished_ns": 187433119396333,
+          "loop_seconds": 0.008421125,
+          "count": 5000000
+        },
+        {
+          "worker_id": 5,
+          "started_ns": 187433110834583,
+          "finished_ns": 187433119419958,
+          "loop_seconds": 0.008585375,
+          "count": 5000000
+        },
+        {
+          "worker_id": 6,
+          "started_ns": 187433110850791,
+          "finished_ns": 187433118381541,
+          "loop_seconds": 0.00753075,
+          "count": 5000000
+        },
+        {
+          "worker_id": 7,
+          "started_ns": 187433110823000,
+          "finished_ns": 187433119397583,
+          "loop_seconds": 0.008574583,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 43
+    },
+    {
+      "variant": "padded_64",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 64,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.002978292,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433193728291,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433194865666,
+          "finished_ns": 187433196706583,
+          "loop_seconds": 0.001840917,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 44
+    },
+    {
+      "variant": "privatized",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.004261833,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433262802708,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433263881791,
+          "finished_ns": 187433266976750,
+          "loop_seconds": 0.003094959,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187433263872750,
+          "finished_ns": 187433267064541,
+          "loop_seconds": 0.003191791,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 45
+    },
+    {
+      "variant": "privatized",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8,
+        16,
+        24
+      ],
+      "seconds": 0.006793084,
+      "counts": [
+        5000000,
+        5000000,
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433345363541,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433346583875,
+          "finished_ns": 187433352156625,
+          "loop_seconds": 0.00557275,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187433346597041,
+          "finished_ns": 187433349329291,
+          "loop_seconds": 0.00273225,
+          "count": 5000000
+        },
+        {
+          "worker_id": 2,
+          "started_ns": 187433346612791,
+          "finished_ns": 187433349130875,
+          "loop_seconds": 0.002518084,
+          "count": 5000000
+        },
+        {
+          "worker_id": 3,
+          "started_ns": 187433346654333,
+          "finished_ns": 187433352131000,
+          "loop_seconds": 0.005476667,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 46
+    },
+    {
+      "variant": "unpadded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0,
+        8
+      ],
+      "seconds": 0.00603925,
+      "counts": [
+        5000000,
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433421646291,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433422739333,
+          "finished_ns": 187433427685541,
+          "loop_seconds": 0.004946208,
+          "count": 5000000
+        },
+        {
+          "worker_id": 1,
+          "started_ns": 187433422729333,
+          "finished_ns": 187433427680375,
+          "loop_seconds": 0.004951042,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 47
+    },
+    {
+      "variant": "privatized",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "alignment_bytes": 128,
+      "counter_offset_within_cache_line": [
+        0
+      ],
+      "seconds": 0.004791583,
+      "counts": [
+        5000000
+      ],
+      "counts_verified": true,
+      "start_release_ns": 187433489442000,
+      "worker_records": [
+        {
+          "worker_id": 0,
+          "started_ns": 187433490498541,
+          "finished_ns": 187433494233583,
+          "loop_seconds": 0.003735042,
+          "count": 5000000
+        }
+      ],
+      "repeat": 3,
+      "execution_order": 48
+    }
+  ],
+  "aggregates": [
+    {
+      "variant": "padded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 128,
+      "repeats": 3,
+      "median_seconds": 0.002875917,
+      "min_seconds": 0.002804167,
+      "max_seconds": 0.004025459,
+      "mean_seconds": 0.003235181,
+      "stdev_seconds": 0.0006853404289752649,
+      "increments_per_second": 1738575904.659279,
+      "requested_speedup_t1_over_tp": 1.0,
+      "karp_flatt_requested": null,
+      "throughput_speedup": 1.0,
+      "weak_scaling_efficiency": 1.0,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 128,
+      "repeats": 3,
+      "median_seconds": 0.0043495,
+      "min_seconds": 0.002875042,
+      "max_seconds": 0.00678225,
+      "mean_seconds": 0.004668930666666666,
+      "stdev_seconds": 0.001973092889835989,
+      "increments_per_second": 2299114840.7862973,
+      "requested_speedup_t1_over_tp": 0.6612063455569606,
+      "karp_flatt_requested": 2.024774358926214,
+      "throughput_speedup": 1.3224126911139211,
+      "weak_scaling_efficiency": 0.6612063455569606,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 128,
+      "repeats": 3,
+      "median_seconds": 0.006375375,
+      "min_seconds": 0.005111,
+      "max_seconds": 0.006877458,
+      "mean_seconds": 0.006121277666666667,
+      "stdev_seconds": 0.0009102293983092029,
+      "increments_per_second": 3137070368.4097013,
+      "requested_speedup_t1_over_tp": 0.45109770013528616,
+      "karp_flatt_requested": 2.622419562177907,
+      "throughput_speedup": 1.8043908005411446,
+      "weak_scaling_efficiency": 0.45109770013528616,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 128,
+      "repeats": 3,
+      "median_seconds": 0.012599584,
+      "min_seconds": 0.011973208,
+      "max_seconds": 0.015226291,
+      "mean_seconds": 0.013266361,
+      "stdev_seconds": 0.0017260014272934415,
+      "increments_per_second": 3174707990.3590465,
+      "requested_speedup_t1_over_tp": 0.22825491698773545,
+      "karp_flatt_requested": 4.864076148829847,
+      "throughput_speedup": 1.8260393359018836,
+      "weak_scaling_efficiency": 0.22825491698773545,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "unpadded",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.002922625,
+      "min_seconds": 0.002670417,
+      "max_seconds": 0.003349084,
+      "mean_seconds": 0.0029807086666666666,
+      "stdev_seconds": 0.00034304155502261433,
+      "increments_per_second": 1710790813.053334,
+      "requested_speedup_t1_over_tp": 1.0,
+      "karp_flatt_requested": null,
+      "throughput_speedup": 1.0,
+      "weak_scaling_efficiency": 1.0,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "unpadded",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.006083542,
+      "min_seconds": 0.00603925,
+      "max_seconds": 0.010283459,
+      "mean_seconds": 0.007468750333333334,
+      "stdev_seconds": 0.0024377098071699044,
+      "increments_per_second": 1643779232.558927,
+      "requested_speedup_t1_over_tp": 0.4804150279557534,
+      "karp_flatt_requested": 3.163067105769642,
+      "throughput_speedup": 0.9608300559115068,
+      "weak_scaling_efficiency": 0.4804150279557534,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "unpadded",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.007801417,
+      "min_seconds": 0.007789792,
+      "max_seconds": 0.007848125,
+      "mean_seconds": 0.007813111333333332,
+      "stdev_seconds": 3.087479224761363e-05,
+      "increments_per_second": 2563636836.743889,
+      "requested_speedup_t1_over_tp": 0.37462745549943044,
+      "karp_flatt_requested": 3.2257580086394935,
+      "throughput_speedup": 1.4985098219977218,
+      "weak_scaling_efficiency": 0.37462745549943044,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "unpadded",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.015559167,
+      "min_seconds": 0.013900875,
+      "max_seconds": 0.016445708,
+      "mean_seconds": 0.015301916666666667,
+      "stdev_seconds": 0.001291772832185417,
+      "increments_per_second": 2570831716.119507,
+      "requested_speedup_t1_over_tp": 0.18783942610809434,
+      "karp_flatt_requested": 5.9413668485400235,
+      "throughput_speedup": 1.5027154088647547,
+      "weak_scaling_efficiency": 0.18783942610809434,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded_64",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 64,
+      "repeats": 3,
+      "median_seconds": 0.002978292,
+      "min_seconds": 0.00294575,
+      "max_seconds": 0.003888417,
+      "mean_seconds": 0.0032708196666666666,
+      "stdev_seconds": 0.0005351024154742093,
+      "increments_per_second": 1678814568.887134,
+      "requested_speedup_t1_over_tp": 1.0,
+      "karp_flatt_requested": null,
+      "throughput_speedup": 1.0,
+      "weak_scaling_efficiency": 1.0,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded_64",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 64,
+      "repeats": 3,
+      "median_seconds": 0.003677292,
+      "min_seconds": 0.002695917,
+      "max_seconds": 0.0045215,
+      "mean_seconds": 0.0036315696666666666,
+      "stdev_seconds": 0.0009136499446157339,
+      "increments_per_second": 2719392422.4674025,
+      "requested_speedup_t1_over_tp": 0.8099144696695285,
+      "karp_flatt_requested": 1.4693965534608426,
+      "throughput_speedup": 1.619828939339057,
+      "weak_scaling_efficiency": 0.8099144696695285,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded_64",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 64,
+      "repeats": 3,
+      "median_seconds": 0.006855708,
+      "min_seconds": 0.006235334,
+      "max_seconds": 0.00797775,
+      "mean_seconds": 0.007022930666666667,
+      "stdev_seconds": 0.0008831624677539991,
+      "increments_per_second": 2917277106.9012856,
+      "requested_speedup_t1_over_tp": 0.4344251534633622,
+      "karp_flatt_requested": 2.7358566587829536,
+      "throughput_speedup": 1.7377006138534488,
+      "weak_scaling_efficiency": 0.4344251534633622,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "padded_64",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 64,
+      "repeats": 3,
+      "median_seconds": 0.013937417,
+      "min_seconds": 0.013081208,
+      "max_seconds": 0.014087083,
+      "mean_seconds": 0.013701902666666666,
+      "stdev_seconds": 0.000542721272671648,
+      "increments_per_second": 2869972248.085854,
+      "requested_speedup_t1_over_tp": 0.21369038466740287,
+      "karp_flatt_requested": 5.205334562801191,
+      "throughput_speedup": 1.709523077339223,
+      "weak_scaling_efficiency": 0.21369038466740287,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "privatized",
+      "workers": 1,
+      "iterations_per_worker": 5000000,
+      "total_increments": 5000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.002730625,
+      "min_seconds": 0.002668375,
+      "max_seconds": 0.004791583,
+      "mean_seconds": 0.003396861,
+      "stdev_seconds": 0.0012082656407379961,
+      "increments_per_second": 1831082627.6035707,
+      "requested_speedup_t1_over_tp": 1.0,
+      "karp_flatt_requested": null,
+      "throughput_speedup": 1.0,
+      "weak_scaling_efficiency": 1.0,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "privatized",
+      "workers": 2,
+      "iterations_per_worker": 5000000,
+      "total_increments": 10000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.0037975,
+      "min_seconds": 0.003469292,
+      "max_seconds": 0.004261833,
+      "mean_seconds": 0.003842875,
+      "stdev_seconds": 0.0003982141096684041,
+      "increments_per_second": 2633311389.071758,
+      "requested_speedup_t1_over_tp": 0.7190585911784069,
+      "karp_flatt_requested": 1.7814145113298236,
+      "throughput_speedup": 1.4381171823568137,
+      "weak_scaling_efficiency": 0.7190585911784069,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "privatized",
+      "workers": 4,
+      "iterations_per_worker": 5000000,
+      "total_increments": 20000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.008739083,
+      "min_seconds": 0.006793084,
+      "max_seconds": 0.012912708,
+      "mean_seconds": 0.009481625,
+      "stdev_seconds": 0.00312665571204554,
+      "increments_per_second": 2288569635.9675264,
+      "requested_speedup_t1_over_tp": 0.3124612731106914,
+      "karp_flatt_requested": 3.933862149996185,
+      "throughput_speedup": 1.2498450924427655,
+      "weak_scaling_efficiency": 0.3124612731106914,
+      "all_counts_verified": true
+    },
+    {
+      "variant": "privatized",
+      "workers": 8,
+      "iterations_per_worker": 5000000,
+      "total_increments": 40000000,
+      "stride_bytes": 8,
+      "repeats": 3,
+      "median_seconds": 0.01335275,
+      "min_seconds": 0.011605459,
+      "max_seconds": 0.013484625,
+      "mean_seconds": 0.012814278,
+      "stdev_seconds": 0.0010489424602793996,
+      "increments_per_second": 2995637602.7410083,
+      "requested_speedup_t1_over_tp": 0.20449907322461666,
+      "karp_flatt_requested": 5.44571166988196,
+      "throughput_speedup": 1.6359925857969333,
+      "weak_scaling_efficiency": 0.20449907322461666,
+      "all_counts_verified": true
+    }
+  ]
+}

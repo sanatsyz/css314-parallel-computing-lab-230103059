@@ -1,0 +1,167 @@
+{
+  "recorded_at_utc": "2026-10-30T04:56:04.417341+00:00",
+  "buffer_elements": 16777216,
+  "dtype": "float64",
+  "buffer_bytes": 134217728,
+  "warmups": 5,
+  "repeats": 5,
+  "native": {
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "flags": [
+      "-O3",
+      "-std=c11",
+      "-fno-fast-math",
+      "-ffp-contract=off",
+      "-shared",
+      "-fPIC"
+    ],
+    "source_sha256": "9d4645d1f6247eb04468c8131169da93fa789550e6463b10e2d0e23248fc0801"
+  },
+  "notes": "Scalar native volatile loads; measures wall time per element, not hardware cache-miss latency. Fixed stride order; no fabricated cache counters.",
+  "runs": [
+    {
+      "stride_elements": 1,
+      "warmup_time_ns": [
+        21379333,
+        9969375,
+        9923583,
+        10118500,
+        10205708
+      ],
+      "time_ns": [
+        10220667,
+        10833958,
+        10071209,
+        10675542,
+        11189166
+      ],
+      "verified_sum": 16777216.0
+    },
+    {
+      "stride_elements": 2,
+      "warmup_time_ns": [
+        5737958,
+        5598875,
+        5596083,
+        5744000,
+        6642625
+      ],
+      "time_ns": [
+        6611500,
+        7020750,
+        7503584,
+        8956125,
+        10860167
+      ],
+      "verified_sum": 8388608.0
+    },
+    {
+      "stride_elements": 4,
+      "warmup_time_ns": [
+        38650291,
+        18734291,
+        45337333,
+        13414333,
+        10467625
+      ],
+      "time_ns": [
+        5223250,
+        3107000,
+        3168834,
+        4938542,
+        3865750
+      ],
+      "verified_sum": 4194304.0
+    },
+    {
+      "stride_elements": 8,
+      "warmup_time_ns": [
+        5148917,
+        5958000,
+        7978625,
+        6058666,
+        6235584
+      ],
+      "time_ns": [
+        4675084,
+        3135417,
+        2536708,
+        2019834,
+        2583209
+      ],
+      "verified_sum": 2097152.0
+    },
+    {
+      "stride_elements": 16,
+      "warmup_time_ns": [
+        3089334,
+        3156584,
+        4618792,
+        2855167,
+        2807958
+      ],
+      "time_ns": [
+        3276208,
+        2977584,
+        3258584,
+        2928917,
+        3017167
+      ],
+      "verified_sum": 1048576.0
+    },
+    {
+      "stride_elements": 32,
+      "warmup_time_ns": [
+        1587500,
+        1846667,
+        1771458,
+        1434458,
+        1609167
+      ],
+      "time_ns": [
+        1737708,
+        1468833,
+        1660000,
+        1431792,
+        2119250
+      ],
+      "verified_sum": 524288.0
+    },
+    {
+      "stride_elements": 64,
+      "warmup_time_ns": [
+        2823667,
+        1837709,
+        1468042,
+        1739250,
+        1168333
+      ],
+      "time_ns": [
+        1211375,
+        1608709,
+        1117333,
+        1243000,
+        1043333
+      ],
+      "verified_sum": 262144.0
+    },
+    {
+      "stride_elements": 128,
+      "warmup_time_ns": [
+        512375,
+        849500,
+        1096292,
+        923542,
+        1009416
+      ],
+      "time_ns": [
+        627084,
+        757958,
+        516958,
+        677334,
+        590000
+      ],
+      "verified_sum": 131072.0
+    }
+  ]
+}

@@ -43,5 +43,7 @@
     ],
     "source_sha256": "9d4645d1f6247eb04468c8131169da93fa789550e6463b10e2d0e23248fc0801"
   },
-  "notes": "Full salted NxN matrices initialized; contiguous leading M=N/2 block multiplied. Allocation excluded; no fast math or fused contraction. Native hot loops permitted by ctypes option."
+  "notes": "Full salted NxN matrices initialized; contiguous leading M=N/2 block multiplied. Allocation excluded; no fast math or fused contraction. Native hot loops permitted by ctypes option.",
+  "naive_time_s": 0.317873083,
+  "interchanged_time_s": 0.063949792
 }

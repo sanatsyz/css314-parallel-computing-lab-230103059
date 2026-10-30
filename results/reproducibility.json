@@ -14,11 +14,20 @@
     "Native C hot loops invoked through ctypes for dense, stride and false-sharing experiments.",
     "Python/NumPy shared-memory stencil; synchronized updates include barriers; startup also recorded separately."
   ],
-  "instructor_verifier_supplied": false,
+  "instructor_verifier_supplied": true,
   "ai_assisted": true,
   "measurement_limitations": [
     "No privileged hardware performance counters or CPU-affinity pinning.",
     "Background desktop activity and heterogeneous cores can affect measurements.",
     "Theoretical FP64 CPU peak, base frequency and L3 not asserted."
-  ]
+  ],
+  "instructor_verifier_supplied_during_initial_benchmarks": false,
+  "instructor_verifier_original_file": "verify_outputs.py.txt",
+  "instructor_verifier_sha256": "bce8d586fd800f888d5001cb6919fd915590f9ec25dab1ab62bd703a502ebb21",
+  "verification_commands": [
+    "python check_teacher.py",
+    "python verify_numerics.py --student-id 30103059"
+  ],
+  "local_receipt": "results/local_verification_receipt.json",
+  "official_receipt_policy": "results/verification_receipt.sig is generated only by a successful run of the unchanged supplied teacher verifier; it is absent on failure."
 }

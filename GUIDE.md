@@ -23,12 +23,13 @@ The full sequence is below. Run one command at a time and wait for it to finish.
 .venv/bin/python src/dense_kernel.py
 .venv/bin/python src/false_sharing.py
 .venv/bin/python src/scaling_study.py
-.venv/bin/python verify_outputs.py
+.venv/bin/python check_teacher.py
+.venv/bin/python verify_numerics.py --student-id 30103059
 ```
 
-These commands replace the relevant files under `results/`. After rerunning an experiment, rerun verification so its receipt describes the current outputs. A verification receipt reports local consistency checks; it does not certify compliance with the course's rules.
+These commands replace the relevant files under `results/`. `check_teacher.py` runs the unchanged teacher verifier against copies of the actual metadata and saves its output. It currently exits with status 1 because this M4 reports 128-byte cache lines while the teacher script accepts only 64. Independent milestone diagnostics also expose an unresolved Roofline classification requirement. The separate `verify_numerics.py` checks the actual saved arrays and writes `results/local_verification_receipt.json`; it does not create the teacher's `.sig` receipt. See [TEACHER_VERIFICATION.md](TEACHER_VERIFICATION.md) for the exact outcomes.
 
-After setup, `.venv/bin/python run_lab.py` runs the same full sequence for this identifier. It does not change the existing milestone tags.
+After setup, `.venv/bin/python run_lab.py` runs the same full sequence for this identifier. It still runs local numerical verification if the teacher check fails, then returns the teacher's failure status. It does not change the existing milestone tags.
 
 To run the small correctness tests separately from performance measurements:
 
@@ -97,6 +98,10 @@ The roofline calculation asks how much arithmetic is done for each byte moved. O
 | `results/scaling_raw.json` | Individual scaling trials and model fit details. |
 | `results/roofline_summary.json` | Arithmetic counts, traffic assumptions, cache context, and classification limits. |
 | `results/arrays/` | Numerical matrices and stencil outputs, including lossless split files with manifests. |
-| `results/verification_receipt.sig` | Locally generated verification receipt; no instructor signature. |
+| `verify_outputs.py` | Unchanged teacher verifier, preserved from `verify_outputs.py.txt`. |
+| `results/teacher_verification.json` | Full teacher-check status, independent milestone diagnostics, and input hashes. |
+| `results/teacher_verification.log` | Readable output from the teacher's script. |
+| `results/local_verification_receipt.json` | Independent local numerical checks and file hashes; unsigned. |
+| `results/verification_receipt.sig` | Created only if the unchanged teacher verifier succeeds; currently absent. |
 
 The `.tsv` files are plain-text tables that a spreadsheet application can open. JSON files contain named fields and lists. A `.npy` file stores a NumPy array; the stencil's `.npz` parts store complete row sections, and their manifest records how to reconstruct the full array.

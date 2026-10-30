@@ -236,5 +236,7 @@
     "largest_weak_assignment_scaled_speedup": 0.23884738209447415,
     "interpretation": "Compare strong and weak efficiencies empirically. Weak throughput may improve when larger per-process work amortizes barriers; no monotonic improvement is assumed."
   },
-  "weak_scaling_formula_note": "Task 3.2 prints P*Work(1)*T1/(Work(P)*Tp). This approaches T1/Tp when Work(P) is P*Work(1). It is recorded literally as assignment_scaled_speedup. Conventional throughput speedup is Work(P)/Work(1)*T1/Tp, with efficiency equal to throughput speedup/P."
+  "weak_scaling_formula_note": "Task 3.2 prints P*Work(1)*T1/(Work(P)*Tp). This approaches T1/Tp when Work(P) is P*Work(1). It is recorded literally as assignment_scaled_speedup. Conventional throughput speedup is Work(P)/Work(1)*T1/Tp, with efficiency equal to throughput speedup/P.",
+  "arithmetic_intensity": 0.3125,
+  "classification": "undetermined"
 }

@@ -5,5 +5,6 @@ Real measurements on an Apple M4 (10 physical cores: 4 performance and 6 efficie
 - [Start here: explanation and run instructions](GUIDE.md)
 - [Handout inconsistencies, AI restriction, and verification limits](HANDOUT_NOTES.md)
 - [Raw measurements and local verification receipt](results/)
+- [Teacher verifier results and compatibility details](TEACHER_VERIFICATION.md)
 
-The instructor's verifier was not supplied. `verify_outputs.py` is an explicitly local, unsigned self-check. This repository is AI-assisted and does not satisfy the handout's ban on AI-generated code unless the instructor permits an exception.
+`verify_outputs.py` now contains the teacher's supplied script unchanged; `verify_outputs.py.txt` preserves the uploaded original. Stronger independent numerical checks are in `verify_numerics.py`. The teacher check currently fails because it hardcodes 64-byte cache lines and requires an unsupported definitive Roofline classification; this M4 reports 128 bytes. The measured data is retained, and the separate local checks pass. See the linked verification report for each milestone. This repository is AI-assisted and does not satisfy the handout's ban on AI-generated code unless the instructor permits an exception.

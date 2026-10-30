@@ -2,9 +2,9 @@
   "schema_version": 1,
   "scope": "local_self_check_not_instructor_signature",
   "cryptographically_signed": false,
-  "instructor_verifier_available": false,
+  "instructor_verifier_available": true,
   "authenticity_limit": "Unsigned local checks and hashes; not an instructor signature or proof of authorship, measurement origin, or timing.",
-  "verified_at_utc": "2026-10-30T05:14:56.725841+00:00",
+  "verified_at_utc": "2026-10-30T05:28:00.140716+00:00",
   "student_id": "30103059",
   "environment": {
     "python": "3.14.3",
@@ -192,13 +192,13 @@
     },
     {
       "path": "GUIDE.md",
-      "bytes": 10424,
-      "sha256": "a2fc29c6b4e239755af569d3912d0800472996231f19bd8b1572437057064f9c"
+      "bytes": 11385,
+      "sha256": "387e357b99c8b60cbe17cbc9e834937a870e51bb110d7e052dd2d948039f1ec9"
     },
     {
       "path": "HANDOUT_NOTES.md",
-      "bytes": 7079,
-      "sha256": "fefdc64d4fcd0340f645ae5f1c65a40196842d0a1ed16b6440ab3b98f95d2e4f"
+      "bytes": 7622,
+      "sha256": "b421127ab2aef4af3a16ceb90d3ac374eff0f5d9d5d6c6209b6fb0e315a48531"
     },
     {
       "path": "ParallelComputingLabPracticum_Paradigm.pdf",
@@ -207,8 +207,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 1766,
-      "sha256": "3a65cd2147a4cab0710d2667c0c5ca08e22850f09dda83e7b927011eec0cc826"
+      "bytes": 2223,
+      "sha256": "0506f73823ff90b1f5393d4456bae58045070735954af928473ce5fb9f0c3fc5"
+    },
+    {
+      "path": "TEACHER_VERIFICATION.md",
+      "bytes": 4250,
+      "sha256": "4790e14cdfa6f664f9373b6a9516b7d7b204e1b7d76bb2bbbeabaae752f6b02d"
+    },
+    {
+      "path": "check_teacher.py",
+      "bytes": 12021,
+      "sha256": "cd56bd080125853db9aef0d957450dc006f57eb0b37b31f2be6ed7ac9d651478"
     },
     {
       "path": "requirements-dev.txt",
@@ -502,13 +512,13 @@
     },
     {
       "path": "results/false_sharing_karp_flatt.tsv",
-      "bytes": 3355,
-      "sha256": "de28e836b672f45de4dac29d018be3b049e5078e6d0462f87be9cbd50afdd90b"
+      "bytes": 4656,
+      "sha256": "dca741a35289f993d76b902b74a3ede43797775c3bffc644c45f6581e10637b7"
     },
     {
       "path": "results/false_sharing_raw.json",
-      "bytes": 75785,
-      "sha256": "93da19a3f281d19171b6bdf582131fd8d21492c88d5b5f5c71f9a644a6103987"
+      "bytes": 79849,
+      "sha256": "f9cf57368a055d602312d44e57781dd4e6dfc23a1f7f9719725ca8e08dd9845b"
     },
     {
       "path": "results/host_profile.json",
@@ -517,18 +527,18 @@
     },
     {
       "path": "results/loop_interchange.json",
-      "bytes": 1097,
-      "sha256": "0bf4496a80f1ae7fac83d94d23fd0aa1ee785e86bc41d039dc5aa358070ca13f"
+      "bytes": 1166,
+      "sha256": "42ff94501f7c788d75fa16d8c293a8d26128a705e90fb6626e60f98473cf3d1b"
     },
     {
       "path": "results/reproducibility.json",
-      "bytes": 1124,
-      "sha256": "aaf9cc7561b9f60d236298c48e108dc61d7a6109a5af5278bc47403af84b3d3f"
+      "bytes": 1707,
+      "sha256": "f54948fbf8249e94b1b7e2523ac6d2641be10d9b2ab1628262b066269e3be14d"
     },
     {
       "path": "results/roofline_summary.json",
-      "bytes": 10588,
-      "sha256": "8e9ded8f8e81bdf29feef77ae38750f4b8e4f6f1b64fd8fa8d72c6384b2bf946"
+      "bytes": 10658,
+      "sha256": "ffe7838d252d09a20f998e01226b2672c2bfcca1180fd789432577e0a716f817"
     },
     {
       "path": "results/salted_params.json",
@@ -552,23 +562,33 @@
     },
     {
       "path": "results/stride_results.tsv",
-      "bytes": 489,
-      "sha256": "d9a4daf2d6bc4e838f5bc5c208ab3c685bc5543ac8f54cd276b18480e69c7b72"
+      "bytes": 675,
+      "sha256": "7a40cadc2a0cf1a78f999ae9157d02a707e51b4c636f6cbb9cc76a02003eab59"
+    },
+    {
+      "path": "results/teacher_verification.json",
+      "bytes": 3696,
+      "sha256": "e730327e08fe4e501470937c58717ddfe203e4ff645e4d48866f92437ce9591b"
+    },
+    {
+      "path": "results/teacher_verification.log",
+      "bytes": 2159,
+      "sha256": "8b1dc0233790af39fe64920cff5f929a1f39195db8fd7e33362c97a0ddddd31d"
     },
     {
       "path": "run_lab.py",
-      "bytes": 1415,
-      "sha256": "7ed9b4dc1a9c1271865d49e49ffb0cd07bace8e01394962a3a4b0d2e752872d6"
+      "bytes": 2115,
+      "sha256": "3c30fe1ff92e9bbae9cfd8cacacdf65690b33dbda4294bb27c8a4010806f4233"
     },
     {
       "path": "src/dense_kernel.py",
-      "bytes": 3537,
-      "sha256": "37b16b45a6656942f73395f38328879408a5dd4a154172dd5875ee3b737bdc79"
+      "bytes": 3850,
+      "sha256": "0c1885f155b0bbc637360813c880c81c6102fb5e7907c9ca1925285e2d3ea83e"
     },
     {
       "path": "src/false_sharing.py",
-      "bytes": 18693,
-      "sha256": "a30f32c102e5fb5904ad47e60ffb6caccecdf9265c5b28e10f26ca75f445206d"
+      "bytes": 20114,
+      "sha256": "60d204250b53ed76b6f0e6ae795d442a612adb7a4833c59b84542364b32962b2"
     },
     {
       "path": "src/locality_native.py",
@@ -597,13 +617,13 @@
     },
     {
       "path": "src/scaling_study.py",
-      "bytes": 29911,
-      "sha256": "b3389b56fb8925fdb5a6450e2521bbe56824b4e51e88cb4b22701dbf93864d59"
+      "bytes": 30506,
+      "sha256": "b3bfdc00534ec5355976cd6df585620c9856b5b6c4e8ae128288c388282959bf"
     },
     {
       "path": "src/stride_bench.py",
-      "bytes": 2766,
-      "sha256": "5aca3fa69cb1b7258012919c773f025a7badf66e3b625ff810782614af45a0b7"
+      "bytes": 3155,
+      "sha256": "97c77aa920900ff028bca90bd649fe0be4dfa57874441f9b05a35d7d1b94e11d"
     },
     {
       "path": "tests/test_false_sharing.py",
@@ -621,18 +641,38 @@
       "sha256": "dfa2aa5e9a1d373c7935141a663660a1eed512c8c63f0524f5160e1c482dd978"
     },
     {
+      "path": "tests/test_teacher_runner.py",
+      "bytes": 7631,
+      "sha256": "391fb6f92644d1c5f10685dc1b938ba42c4f132f149337923a99c15637ecee3c"
+    },
+    {
+      "path": "tests/test_teacher_schema.py",
+      "bytes": 5928,
+      "sha256": "0dea6fc52171b37929253b08de8da2df50b0eae1672add452e8813b85a67ca4c"
+    },
+    {
       "path": "tests/test_verifier.py",
-      "bytes": 4582,
-      "sha256": "4344be3522462856ad4c85a6490d0b1a063d899fd44a351e03eabae3344db86a"
+      "bytes": 9619,
+      "sha256": "a694a148bff2d7b204c67df9fc321648a6240e2d11f03daed52ad2571fbf7d2b"
+    },
+    {
+      "path": "verify_numerics.py",
+      "bytes": 32359,
+      "sha256": "be1ae5fbf475c9f0c4c80b8a32cb8a50a5484bea78cc1f4616afbc805fd0fe24"
     },
     {
       "path": "verify_outputs.py",
-      "bytes": 30283,
-      "sha256": "f1cccfc8c9d19b6814c912388a33d6f1033f9c2cb23699bd7d906698a1a76582"
+      "bytes": 7811,
+      "sha256": "bce8d586fd800f888d5001cb6919fd915590f9ec25dab1ab62bd703a502ebb21"
+    },
+    {
+      "path": "verify_outputs.py.txt",
+      "bytes": 7811,
+      "sha256": "bce8d586fd800f888d5001cb6919fd915590f9ec25dab1ab62bd703a502ebb21"
     }
   ],
   "manifest_exclusions": [
-    "verification_receipt.sig itself",
+    "local_verification_receipt.json itself",
     "__pycache__ and .pyc runtime caches"
   ]
 }

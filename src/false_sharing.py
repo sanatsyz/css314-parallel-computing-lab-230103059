@@ -287,7 +287,34 @@ def aggregate_trials(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "all_counts_verified": all(sample["counts_verified"] for sample in runs),
         }
         rows.append(row)
-    return sorted(rows, key=lambda row: (list(dict.fromkeys(sample["variant"] for sample in samples)).index(row["variant"]), row["workers"]))
+    rows = sorted(rows, key=lambda row: (list(dict.fromkeys(sample["variant"] for sample in samples)).index(row["variant"]), row["workers"]))
+    return add_teacher_metric_aliases(rows)
+
+
+def add_teacher_metric_aliases(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Add the verifier's per-P columns to the retained long-form table.
+
+    The same per-P comparison is repeated on each variant row. ``e_padded``
+    always describes the handout's literal 64-byte spacing when that variant
+    was measured. Hardware-aware padding remains separately identified.
+    These requested Karp--Flatt values are not strong-scaling serial fractions.
+    """
+    indexed = {(row["variant"], row["workers"]): row for row in rows}
+    padded_variant = "padded_64" if any(row["variant"] == "padded_64" for row in rows) else "padded"
+
+    def metric(variant: str, workers: int, stride: int | None = None):
+        source = indexed.get((variant, workers))
+        if workers == 1 or source is None or stride is not None and source["stride_bytes"] != stride:
+            return None
+        return source["karp_flatt_requested"]
+
+    return [{**row, "p": row["workers"],
+             "e_unpadded": metric("unpadded", row["workers"]),
+             "e_padded": metric(padded_variant, row["workers"]),
+             "e_padded_128": metric("padded", row["workers"], stride=128),
+             "e_privatized": metric("privatized", row["workers"]),
+             "padded_column_variant": padded_variant,
+             "hardware_padded_column_variant": "padded"} for row in rows]
 
 
 def write_results(output_dir: Path, metadata: dict[str, Any], samples: list[dict[str, Any]]) -> None:

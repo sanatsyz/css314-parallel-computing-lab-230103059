@@ -2609,7 +2609,14 @@
       "karp_flatt_requested": null,
       "throughput_speedup": 1.0,
       "weak_scaling_efficiency": 1.0,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 1,
+      "e_unpadded": null,
+      "e_padded": null,
+      "e_padded_128": null,
+      "e_privatized": null,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded",
@@ -2628,7 +2635,14 @@
       "karp_flatt_requested": 2.024774358926214,
       "throughput_speedup": 1.3224126911139211,
       "weak_scaling_efficiency": 0.6612063455569606,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 2,
+      "e_unpadded": 3.163067105769642,
+      "e_padded": 1.4693965534608426,
+      "e_padded_128": 2.024774358926214,
+      "e_privatized": 1.7814145113298236,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded",
@@ -2647,7 +2661,14 @@
       "karp_flatt_requested": 2.622419562177907,
       "throughput_speedup": 1.8043908005411446,
       "weak_scaling_efficiency": 0.45109770013528616,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 4,
+      "e_unpadded": 3.2257580086394935,
+      "e_padded": 2.7358566587829536,
+      "e_padded_128": 2.622419562177907,
+      "e_privatized": 3.933862149996185,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded",
@@ -2666,7 +2687,14 @@
       "karp_flatt_requested": 4.864076148829847,
       "throughput_speedup": 1.8260393359018836,
       "weak_scaling_efficiency": 0.22825491698773545,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 8,
+      "e_unpadded": 5.9413668485400235,
+      "e_padded": 5.205334562801191,
+      "e_padded_128": 4.864076148829847,
+      "e_privatized": 5.44571166988196,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "unpadded",
@@ -2685,7 +2713,14 @@
       "karp_flatt_requested": null,
       "throughput_speedup": 1.0,
       "weak_scaling_efficiency": 1.0,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 1,
+      "e_unpadded": null,
+      "e_padded": null,
+      "e_padded_128": null,
+      "e_privatized": null,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "unpadded",
@@ -2704,7 +2739,14 @@
       "karp_flatt_requested": 3.163067105769642,
       "throughput_speedup": 0.9608300559115068,
       "weak_scaling_efficiency": 0.4804150279557534,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 2,
+      "e_unpadded": 3.163067105769642,
+      "e_padded": 1.4693965534608426,
+      "e_padded_128": 2.024774358926214,
+      "e_privatized": 1.7814145113298236,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "unpadded",
@@ -2723,7 +2765,14 @@
       "karp_flatt_requested": 3.2257580086394935,
       "throughput_speedup": 1.4985098219977218,
       "weak_scaling_efficiency": 0.37462745549943044,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 4,
+      "e_unpadded": 3.2257580086394935,
+      "e_padded": 2.7358566587829536,
+      "e_padded_128": 2.622419562177907,
+      "e_privatized": 3.933862149996185,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "unpadded",
@@ -2742,7 +2791,14 @@
       "karp_flatt_requested": 5.9413668485400235,
       "throughput_speedup": 1.5027154088647547,
       "weak_scaling_efficiency": 0.18783942610809434,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 8,
+      "e_unpadded": 5.9413668485400235,
+      "e_padded": 5.205334562801191,
+      "e_padded_128": 4.864076148829847,
+      "e_privatized": 5.44571166988196,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded_64",
@@ -2761,7 +2817,14 @@
       "karp_flatt_requested": null,
       "throughput_speedup": 1.0,
       "weak_scaling_efficiency": 1.0,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 1,
+      "e_unpadded": null,
+      "e_padded": null,
+      "e_padded_128": null,
+      "e_privatized": null,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded_64",
@@ -2780,7 +2843,14 @@
       "karp_flatt_requested": 1.4693965534608426,
       "throughput_speedup": 1.619828939339057,
       "weak_scaling_efficiency": 0.8099144696695285,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 2,
+      "e_unpadded": 3.163067105769642,
+      "e_padded": 1.4693965534608426,
+      "e_padded_128": 2.024774358926214,
+      "e_privatized": 1.7814145113298236,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded_64",
@@ -2799,7 +2869,14 @@
       "karp_flatt_requested": 2.7358566587829536,
       "throughput_speedup": 1.7377006138534488,
       "weak_scaling_efficiency": 0.4344251534633622,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 4,
+      "e_unpadded": 3.2257580086394935,
+      "e_padded": 2.7358566587829536,
+      "e_padded_128": 2.622419562177907,
+      "e_privatized": 3.933862149996185,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "padded_64",
@@ -2818,7 +2895,14 @@
       "karp_flatt_requested": 5.205334562801191,
       "throughput_speedup": 1.709523077339223,
       "weak_scaling_efficiency": 0.21369038466740287,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 8,
+      "e_unpadded": 5.9413668485400235,
+      "e_padded": 5.205334562801191,
+      "e_padded_128": 4.864076148829847,
+      "e_privatized": 5.44571166988196,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "privatized",
@@ -2837,7 +2921,14 @@
       "karp_flatt_requested": null,
       "throughput_speedup": 1.0,
       "weak_scaling_efficiency": 1.0,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 1,
+      "e_unpadded": null,
+      "e_padded": null,
+      "e_padded_128": null,
+      "e_privatized": null,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "privatized",
@@ -2856,7 +2947,14 @@
       "karp_flatt_requested": 1.7814145113298236,
       "throughput_speedup": 1.4381171823568137,
       "weak_scaling_efficiency": 0.7190585911784069,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 2,
+      "e_unpadded": 3.163067105769642,
+      "e_padded": 1.4693965534608426,
+      "e_padded_128": 2.024774358926214,
+      "e_privatized": 1.7814145113298236,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "privatized",
@@ -2875,7 +2973,14 @@
       "karp_flatt_requested": 3.933862149996185,
       "throughput_speedup": 1.2498450924427655,
       "weak_scaling_efficiency": 0.3124612731106914,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 4,
+      "e_unpadded": 3.2257580086394935,
+      "e_padded": 2.7358566587829536,
+      "e_padded_128": 2.622419562177907,
+      "e_privatized": 3.933862149996185,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     },
     {
       "variant": "privatized",
@@ -2894,7 +2999,14 @@
       "karp_flatt_requested": 5.44571166988196,
       "throughput_speedup": 1.6359925857969333,
       "weak_scaling_efficiency": 0.20449907322461666,
-      "all_counts_verified": true
+      "all_counts_verified": true,
+      "p": 8,
+      "e_unpadded": 5.9413668485400235,
+      "e_padded": 5.205334562801191,
+      "e_padded_128": 4.864076148829847,
+      "e_privatized": 5.44571166988196,
+      "padded_column_variant": "padded_64",
+      "hardware_padded_column_variant": "padded"
     }
   ]
 }

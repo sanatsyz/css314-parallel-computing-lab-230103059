@@ -1,0 +1,37 @@
+CSS314: unchanged teacher verifier report
+Created at UTC: 2026-10-30T05:27:10.679771+00:00
+Teacher source: /Users/sanatsyz/Desktop/assignment sufi/verify_outputs.py
+Provided source: /Users/sanatsyz/Desktop/assignment sufi/verify_outputs.py.txt
+Original script SHA-256: bce8d586fd800f888d5001cb6919fd915590f9ec25dab1ab62bd703a502ebb21
+Source integrity: pass
+Overall result: fail
+
+Full teacher main (the only run that can authorize a receipt):
+[FULL] status=fail exit_code=1
+stdout:
+============================================================
+CS482 Parallel Computing: Automated Practicum Verifier
+============================================================
+[FAIL] Milestone 0 (Host & Salt): Expected cache_line_bytes == 64, got 128
+
+Individual milestones (diagnostics only; cannot override full failure):
+[M0] status=fail exit_code=1
+stdout:
+[FAIL] Milestone 0 (Host & Salt): Expected cache_line_bytes == 64, got 128
+[M1] status=pass exit_code=0
+stdout:
+[PASS] Milestone 1 (Locality & Interchange): Stride cliff reproduced: Stride-8 is 1.94x slower per element than Stride-1
+[PASS] Milestone 1 (Locality & Interchange): Loop interchange speedup verified: 4.97x (Naive: 0.32s -> i-k-j: 0.06s)
+[M2] status=pass exit_code=0
+stdout:
+[PASS] Milestone 2 (False Sharing & Karp-Flatt): Karp-Flatt correctly diagnosed false sharing contention: e grew from 3.163 (P=2) to 5.941 (P=8)
+[M3] status=fail exit_code=1
+stdout:
+[FAIL] Milestone 3 (Scaling & Roofline): roofline_summary.json must classify the kernel as 'memory-bound' or 'compute-bound'
+
+Official receipt generated: False
+The teacher script is executed unchanged from a byte-for-byte temporary copy; each run reads isolated copies of the seven listed metadata files.
+Individual milestone runs are diagnostics only; they cannot override a failing full teacher run.
+No hardware measurements, classifications, or teacher checks are changed by this runner.
+Teacher verification checks metadata and is not hardware authentication or independent numerical-array verification.
+The teacher receipt is a deterministic public SHA-256 token; its formula contains no secret and does not authenticate hardware or results.

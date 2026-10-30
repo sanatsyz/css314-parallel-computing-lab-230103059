@@ -11,6 +11,16 @@ import numpy as np
 from locality_native import load_library, pointer
 
 
+def add_teacher_stride_aliases(row):
+    """Expose the supplied verifier's names without changing measured units.
+
+    ``latency_ns`` is its required field name for wall time per accessed
+    element; it is not a hardware cache-miss latency measurement.
+    """
+    return {**row, "stride": row["stride_elements"],
+            "latency_ns": row["ns_per_element"]}
+
+
 def benchmark(elements=16_777_216, warmups=5, repeats=5):
     lib, metadata = load_library()
     data = np.ones(elements, dtype=np.float64)
@@ -27,9 +37,10 @@ def benchmark(elements=16_777_216, warmups=5, repeats=5):
                 raise AssertionError(f"Stride {stride}: incorrect reduction")
             (warmup_samples if i < warmups else samples).append(elapsed)
         median = statistics.median(samples)
-        rows.append({"stride_elements": stride, "stride_bytes": stride * 8,
-                     "elements_touched": touched, "median_time_ns": median,
-                     "ns_per_element": median / touched, "sum": total})
+        rows.append(add_teacher_stride_aliases({
+            "stride_elements": stride, "stride_bytes": stride * 8,
+            "elements_touched": touched, "median_time_ns": median,
+            "ns_per_element": median / touched, "sum": total}))
         raw.append({"stride_elements": stride, "warmup_time_ns": warmup_samples,
                     "time_ns": samples, "verified_sum": total})
     return rows, {"recorded_at_utc": datetime.now(timezone.utc).isoformat(),

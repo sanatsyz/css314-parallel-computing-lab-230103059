@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "experiment": "B",
+  "created_at_utc": "2026-10-30T05:55:43.751129+00:00",
+  "config": {
+    "total_increments": 2000000,
+    "repeats": 3,
+    "workers": [
+      1,
+      2,
+      4
+    ],
+    "start_method": "spawn",
+    "quick": false,
+    "timing_scope": "process start through all joins; process objects created before timer",
+    "worker_order": "rotate (1, 2, 4) left by repeat index modulo 3"
+  },
+  "samples": [
+    {
+      "workers": 1,
+      "runtime_seconds": 2.7816694999928586,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        2000000
+      ],
+      "worker_exitcodes": [
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 9.324840750021394,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        1000000,
+        1000000
+      ],
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 1
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 7.508496332971845,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        500000,
+        500000,
+        500000,
+        500000
+      ],
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 7.6562191669945605,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        1000000,
+        1000000
+      ],
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 8.478878541995073,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        500000,
+        500000,
+        500000,
+        500000
+      ],
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 2
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 2.943990291998489,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        2000000
+      ],
+      "worker_exitcodes": [
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 9.310689707985148,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        500000,
+        500000,
+        500000,
+        500000
+      ],
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 3
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 2.944500750018051,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        2000000
+      ],
+      "worker_exitcodes": [
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 3
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 7.782049166999059,
+      "total_count": 2000000,
+      "expected_total": 2000000,
+      "worker_iterations": [
+        1000000,
+        1000000
+      ],
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "counts_verified": true,
+      "start_method": "spawn",
+      "counter_type": "synchronized Value('i')",
+      "value_uses_default_lock": true,
+      "explicit_lock_per_increment": true,
+      "repeat": 3
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "repeats": 3,
+      "median_seconds": 2.943990291998489,
+      "minimum_seconds": 2.7816694999928586,
+      "maximum_seconds": 2.944500750018051,
+      "speedup": 1.0,
+      "efficiency_percent": 100.0,
+      "karp_flatt": null
+    },
+    {
+      "workers": 2,
+      "repeats": 3,
+      "median_seconds": 7.782049166999059,
+      "minimum_seconds": 7.6562191669945605,
+      "maximum_seconds": 9.324840750021394,
+      "speedup": 0.3783052803730564,
+      "efficiency_percent": 18.91526401865282,
+      "karp_flatt": 4.286735617403356
+    },
+    {
+      "workers": 4,
+      "repeats": 3,
+      "median_seconds": 8.478878541995073,
+      "minimum_seconds": 7.508496332971845,
+      "maximum_seconds": 9.310689707985148,
+      "speedup": 0.3472145847374965,
+      "efficiency_percent": 8.680364618437412,
+      "karp_flatt": 3.5067511329956633
+    }
+  ],
+  "notes": [
+    "Literal handout synchronization: Value('i', 0) retains its default lock, and a separate common Lock protects each read-modify-write increment.",
+    "Fixed total work is partitioned with remainders preserved; it is not multiplied by P.",
+    "Timing includes spawn startup and worker teardown, without subtracting overhead.",
+    "Measured speedup and Karp-Flatt values are reported as observed, without enforcing a trend."
+  ]
+}

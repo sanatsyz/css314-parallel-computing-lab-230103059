@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "case_id": "c_buffered",
+  "created_at_utc": "2026-10-30T09:55:10.371423+00:00",
+  "config": {
+    "total_items": 10000000,
+    "batch_size": 10000,
+    "repeats": 3,
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "start_method": "spawn",
+    "quick": false,
+    "timing_scope": "process start through all batch/sentinel receives and joins; setup/cleanup excluded",
+    "worker_order": "rotate (1, 2, 4, 8) left by repeat index modulo 4",
+    "monitor_interval_seconds": 0.1
+  },
+  "samples": [
+    {
+      "workers": 1,
+      "runtime_seconds": 0.34093437500996515,
+      "total_items": 10000000,
+      "worker_items": [
+        10000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999994,
+      "expected_sum": 29999994,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 1,
+      "received_messages": 1000,
+      "total_received_messages": 1001,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 0.19854458299232647,
+      "total_items": 10000000,
+      "worker_items": [
+        5000000,
+        5000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999990,
+      "expected_sum": 29999990,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 2,
+      "received_messages": 1000,
+      "total_received_messages": 1002,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.13072495799860917,
+      "total_items": 10000000,
+      "worker_items": [
+        2500000,
+        2500000,
+        2500000,
+        2500000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999988,
+      "expected_sum": 29999988,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 4,
+      "received_messages": 1000,
+      "total_received_messages": 1004,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 0.1401273749943357,
+      "total_items": 10000000,
+      "worker_items": [
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999952,
+      "expected_sum": 29999952,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 8,
+      "received_messages": 1000,
+      "total_received_messages": 1008,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 0.20026237500132993,
+      "total_items": 10000000,
+      "worker_items": [
+        5000000,
+        5000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999990,
+      "expected_sum": 29999990,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 2,
+      "received_messages": 1000,
+      "total_received_messages": 1002,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.1356201250164304,
+      "total_items": 10000000,
+      "worker_items": [
+        2500000,
+        2500000,
+        2500000,
+        2500000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999988,
+      "expected_sum": 29999988,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 4,
+      "received_messages": 1000,
+      "total_received_messages": 1004,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 0.1597937920014374,
+      "total_items": 10000000,
+      "worker_items": [
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999952,
+      "expected_sum": 29999952,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 8,
+      "received_messages": 1000,
+      "total_received_messages": 1008,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 0.35329341699252836,
+      "total_items": 10000000,
+      "worker_items": [
+        10000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999994,
+      "expected_sum": 29999994,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 1,
+      "received_messages": 1000,
+      "total_received_messages": 1001,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.12886962498305365,
+      "total_items": 10000000,
+      "worker_items": [
+        2500000,
+        2500000,
+        2500000,
+        2500000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999988,
+      "expected_sum": 29999988,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 4,
+      "received_messages": 1000,
+      "total_received_messages": 1004,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 0.13877283298643306,
+      "total_items": 10000000,
+      "worker_items": [
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000,
+        1250000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999952,
+      "expected_sum": 29999952,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 8,
+      "received_messages": 1000,
+      "total_received_messages": 1008,
+      "worker_exitcodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 0.3410840409924276,
+      "total_items": 10000000,
+      "worker_items": [
+        10000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999994,
+      "expected_sum": 29999994,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 1,
+      "received_messages": 1000,
+      "total_received_messages": 1001,
+      "worker_exitcodes": [
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 0.20014054200146347,
+      "total_items": 10000000,
+      "worker_items": [
+        5000000,
+        5000000
+      ],
+      "result_count": 10000000,
+      "result_sum": 29999990,
+      "expected_sum": 29999990,
+      "batch_size": 10000,
+      "received_batches": 1000,
+      "sentinels_received": 2,
+      "received_messages": 1000,
+      "total_received_messages": 1002,
+      "worker_exitcodes": [
+        0,
+        0
+      ],
+      "start_method": "spawn",
+      "counts_verified": true,
+      "repeat": 3
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "repeats": 3,
+      "median_seconds": 0.3410840409924276,
+      "minimum_seconds": 0.34093437500996515,
+      "maximum_seconds": 0.35329341699252836,
+      "speedup": 1.0,
+      "efficiency_percent": 100.0,
+      "karp_flatt": null
+    },
+    {
+      "workers": 2,
+      "repeats": 3,
+      "median_seconds": 0.20014054200146347,
+      "minimum_seconds": 0.19854458299232647,
+      "maximum_seconds": 0.20026237500132993,
+      "speedup": 1.7042226306648731,
+      "efficiency_percent": 85.21113153324366,
+      "karp_flatt": 0.17355559303876533
+    },
+    {
+      "workers": 4,
+      "repeats": 3,
+      "median_seconds": 0.13072495799860917,
+      "minimum_seconds": 0.12886962498305365,
+      "maximum_seconds": 0.1356201250164304,
+      "speedup": 2.609173077692299,
+      "efficiency_percent": 65.22932694230748,
+      "karp_flatt": 0.17768425485694847
+    },
+    {
+      "workers": 8,
+      "repeats": 3,
+      "median_seconds": 0.1401273749943357,
+      "minimum_seconds": 0.13877283298643306,
+      "maximum_seconds": 0.1597937920014374,
+      "speedup": 2.434099982292647,
+      "efficiency_percent": 30.42624977865809,
+      "karp_flatt": 0.3266622487747081
+    }
+  ],
+  "notes": [
+    "Workers append i % 7 to private lists, send each batch sum, clear the list, then send a None sentinel.",
+    "Partial final batches are flushed; all division remainders are assigned exactly.",
+    "Each worker restarts i at zero, so the independent checksum uses its own item count.",
+    "The timed parent combines batch sums; individual records never traverse the queue.",
+    "A low-frequency exit monitor wakes failed/incomplete runs; normal receives use blocking Queue.get().",
+    "Monitor setup/teardown and Queue resource cleanup occur outside the reported interval.",
+    "Observed performance is retained without enforcing the handout's expected trend."
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-30T09:57:52.749299+00:00",
+  "correctness_status": "pass",
+  "checks": {
+    "a_micro": {
+      "status": "pass",
+      "samples_verified": 12,
+      "full_handout_parameters": true,
+      "total_items": 1000000,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 13.962332708004396,
+          "minimum_seconds": 13.561112082999898,
+          "maximum_seconds": 13.969781082996633,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 10.990057707997039,
+          "minimum_seconds": 10.954960166011006,
+          "maximum_seconds": 11.195017624995671,
+          "speedup": 1.2704512641316295,
+          "efficiency_percent": 63.522563206581474,
+          "karp_flatt": 0.5742437797226538
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 13.521676040982129,
+          "minimum_seconds": 13.080500458017923,
+          "maximum_seconds": 13.538764249999076,
+          "speedup": 1.0325889087777806,
+          "efficiency_percent": 25.814722719444518,
+          "karp_flatt": 0.9579194798617334
+        },
+        {
+          "workers": 8,
+          "repeats": 3,
+          "median_seconds": 13.992705416982062,
+          "minimum_seconds": 13.785910167003749,
+          "maximum_seconds": 14.092193666001549,
+          "speedup": 0.9978293898090069,
+          "efficiency_percent": 12.472867372612587,
+          "karp_flatt": 1.002486093701459
+        }
+      ]
+    },
+    "a_coarse": {
+      "status": "pass",
+      "samples_verified": 12,
+      "full_handout_parameters": true,
+      "total_items": 1000000,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 5.522513917007018,
+          "minimum_seconds": 5.5041325420024805,
+          "maximum_seconds": 5.5916579170152545,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 2.8344271660025697,
+          "minimum_seconds": 2.8228424579720013,
+          "maximum_seconds": 2.844609624997247,
+          "speedup": 1.9483703738260076,
+          "efficiency_percent": 97.41851869130038,
+          "karp_flatt": 0.026498876634326818
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 1.5698544580081943,
+          "minimum_seconds": 1.4894785420037806,
+          "maximum_seconds": 1.71511108399136,
+          "speedup": 3.5178508993845794,
+          "efficiency_percent": 87.94627248461448,
+          "karp_flatt": 0.04568595186905814
+        },
+        {
+          "workers": 8,
+          "repeats": 3,
+          "median_seconds": 1.1044139170262497,
+          "minimum_seconds": 1.0736372089886572,
+          "maximum_seconds": 1.1364182500110473,
+          "speedup": 5.00040232368401,
+          "efficiency_percent": 62.50502904605012,
+          "karp_flatt": 0.0856958952542288
+        }
+      ]
+    },
+    "b_queue": {
+      "status": "pass",
+      "samples_verified": 12,
+      "full_handout_parameters": true,
+      "total_items": 400000,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 1.790803459007293,
+          "minimum_seconds": 1.777903249982046,
+          "maximum_seconds": 1.8073542500205804,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 2.8777870000049006,
+          "minimum_seconds": 2.8170939999981783,
+          "maximum_seconds": 3.2413334579905495,
+          "speedup": 0.6222849220613769,
+          "efficiency_percent": 31.114246103068844,
+          "karp_flatt": 2.2139618510678574
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 2.938621500012232,
+          "minimum_seconds": 2.9242934999929275,
+          "maximum_seconds": 2.9761376249953173,
+          "speedup": 0.6094025579680264,
+          "efficiency_percent": 15.235063949200661,
+          "karp_flatt": 1.8546019089786778
+        },
+        {
+          "workers": 8,
+          "repeats": 3,
+          "median_seconds": 3.1377126250008587,
+          "minimum_seconds": 3.0679842499957886,
+          "maximum_seconds": 3.198746709007537,
+          "speedup": 0.5707353327192617,
+          "efficiency_percent": 7.134191658990771,
+          "karp_flatt": 1.859572139752738
+        }
+      ]
+    },
+    "c_buffered": {
+      "status": "pass",
+      "samples_verified": 12,
+      "full_handout_parameters": true,
+      "total_items": 10000000,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 0.3410840409924276,
+          "minimum_seconds": 0.34093437500996515,
+          "maximum_seconds": 0.35329341699252836,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 0.20014054200146347,
+          "minimum_seconds": 0.19854458299232647,
+          "maximum_seconds": 0.20026237500132993,
+          "speedup": 1.7042226306648731,
+          "efficiency_percent": 85.21113153324366,
+          "karp_flatt": 0.17355559303876533
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 0.13072495799860917,
+          "minimum_seconds": 0.12886962498305365,
+          "maximum_seconds": 0.1356201250164304,
+          "speedup": 2.609173077692299,
+          "efficiency_percent": 65.22932694230748,
+          "karp_flatt": 0.17768425485694847
+        },
+        {
+          "workers": 8,
+          "repeats": 3,
+          "median_seconds": 0.1401273749943357,
+          "minimum_seconds": 0.13877283298643306,
+          "maximum_seconds": 0.1597937920014374,
+          "speedup": 2.434099982292647,
+          "efficiency_percent": 30.42624977865809,
+          "karp_flatt": 0.3266622487747081
+        }
+      ]
+    }
+  },
+  "rubric": {
+    "A": {
+      "meets_numeric_condition": true,
+      "micro_over_coarse_runtime_ratio": {
+        "1": 2.528256681256391,
+        "2": 3.87734701382236,
+        "4": 8.613330982375405,
+        "8": 12.669801784695805
+      },
+      "micro_slower_at_all_worker_counts": true,
+      "condition": "Micro-task runtime exceeds coarse-chunk runtime at each P",
+      "causal_proof_from_timings_alone": false
+    },
+    "B": {
+      "meets_numeric_condition": false,
+      "t8_greater_than_t1": true,
+      "runtime_monotonically_increases": true,
+      "e2_e4_e8_strictly_increase": false,
+      "e2": 2.2139618510678574,
+      "e4": 1.8546019089786778,
+      "e8": 1.859572139752738,
+      "table_s8_below_half": false,
+      "table_e2_above_half": true,
+      "table_e8_above_two": false,
+      "condition": "T8 > T1 and e(2) < e(4) < e(8) (final sign-off criteria)"
+    },
+    "C": {
+      "meets_numeric_condition": false,
+      "speedup_8": 2.434099982292647,
+      "karp_flatt_8": 0.3266622487747081,
+      "throughput_gain_over_unbuffered": {
+        "1": 131.25822698980002,
+        "2": 359.4707712922874,
+        "4": 561.9855506175603,
+        "8": 559.7965110542627
+      },
+      "eight_worker_throughput_gain_over_ten": true,
+      "all_worker_throughput_gains_over_ten": true,
+      "runtime_below_unbuffered_all_p": true,
+      "task_e8_below_004": false,
+      "table_e2_below_005": false,
+      "table_e8_below_005": false,
+      "condition": "At P=8: normalized throughput gain > 10, S8 > 5, e(8) <= 0.05",
+      "threshold_note": "Task text uses e < 0.04; final sign-off uses e(8) <= 0.05; both observations are retained."
+    }
+  },
+  "verification_kind": "independent local schema, arithmetic and numerical checks",
+  "official_instructor_checker": false,
+  "cryptographically_signed": false,
+  "instructor_signoff": "pending",
+  "manifest": [
+    {
+      "path": "CS482 Practice Lab Handout (Variant B).pdf",
+      "bytes": 360927,
+      "sha256": "dda72afdd0bd22c07334e2d7e35f92fe706d1324a78a2c48dd2684eed07a3e4b"
+    },
+    {
+      "path": "RESULTS_B.md",
+      "bytes": 7774,
+      "sha256": "ec571532b3135f56800979705eb146991d3454d8200eb8066ec5e45fa54f0260"
+    },
+    {
+      "path": "VARIANT_B_GUIDE.md",
+      "bytes": 7237,
+      "sha256": "71fbf91668187da77534e6758eb424bdc57ced4a9094b56424214cf506a50888"
+    },
+    {
+      "path": "exp_a_granularity.py",
+      "bytes": 6002,
+      "sha256": "685e7a92847dd0db0f8a3f4de20a6fc6ee407fa3c869ca3d4065617a29d96680"
+    },
+    {
+      "path": "exp_b_queue.py",
+      "bytes": 7196,
+      "sha256": "0fe54a9c2d1daccf0e181f5d95b193f85f127507dfb32051e3c62acf03b94afa"
+    },
+    {
+      "path": "exp_c_buffered.py",
+      "bytes": 6125,
+      "sha256": "051a7dc654242a7e0d9f75479c7691349ff0636114d3d7797219a0854e22e47c"
+    },
+    {
+      "path": "practice_support.py",
+      "bytes": 7223,
+      "sha256": "b47900b740548490899454b9ed60a29578371bf0ff6edd5e93ce642a33bd456f"
+    },
+    {
+      "path": "run_variant_b.py",
+      "bytes": 678,
+      "sha256": "b674fdcc261353af989bdb6e2c7834cff041a4cb9cf6a466874da72a60cb090c"
+    },
+    {
+      "path": "tests/test_variant_b_granularity.py",
+      "bytes": 2914,
+      "sha256": "05a1ff49ec69d5a1fe104bc53001a1bb49699ef87863ed6b9a0b3d68d1cf816c"
+    },
+    {
+      "path": "tests/test_variant_b_queues.py",
+      "bytes": 4450,
+      "sha256": "f6c48ddf36a0535a885e633cf663ff44e9b545ef44e3bfc55d559eac0f586108"
+    },
+    {
+      "path": "tests/test_variant_b_verification.py",
+      "bytes": 11992,
+      "sha256": "f06d662e02b2916c9962baa30a930b1c06587a6d73d74ff6ccc524c68b8ef457"
+    },
+    {
+      "path": "variant_b_report.py",
+      "bytes": 11589,
+      "sha256": "5d92256feef6d04cdc3424b7312853e8dce2b3aa1a2f1b1695c5474159f022ea"
+    },
+    {
+      "path": "variant_b_results/a_coarse.json",
+      "bytes": 5428,
+      "sha256": "fadbfa5c192f441029da1fe57f4674d75fb14a7622d6ddd7a6da1c18ab0d8e6e"
+    },
+    {
+      "path": "variant_b_results/a_coarse.tsv",
+      "bytes": 521,
+      "sha256": "a570f9168e8e06ca04191eddf9534369fbc09e509fc65dca66b456a3a85863d6"
+    },
+    {
+      "path": "variant_b_results/a_micro.json",
+      "bytes": 5384,
+      "sha256": "b2c5ffc70b60cfc066a75685afe44e1f952c9b0f357d1607c0a4e0cc19720c4e"
+    },
+    {
+      "path": "variant_b_results/a_micro.tsv",
+      "bytes": 526,
+      "sha256": "e9001a72233e98453923bc8d5a338f16de0956c363f959b40d017cf0caa5f97a"
+    },
+    {
+      "path": "variant_b_results/b_queue.json",
+      "bytes": 8073,
+      "sha256": "b2a6b623f5d8d05910e121e0ada67997da116cf463bda31c1d746a4a78959dea"
+    },
+    {
+      "path": "variant_b_results/b_queue.tsv",
+      "bytes": 521,
+      "sha256": "f5c9b54d9f50767da1f4a3b37a9483e236931e3b08691d98adb0a72c0e917b76"
+    },
+    {
+      "path": "variant_b_results/c_buffered.json",
+      "bytes": 9883,
+      "sha256": "e6f80e83fb6a6aa4ab9bffb63cda4cdabdbfe01d59c1b6ec0eeb4d31bd191907"
+    },
+    {
+      "path": "variant_b_results/c_buffered.tsv",
+      "bytes": 532,
+      "sha256": "c6d2340e9170b895c6151d7db24dce411edb06059f56c96716e7b8af01cf4646"
+    },
+    {
+      "path": "variant_b_results/configuration.json",
+      "bytes": 769,
+      "sha256": "441a25f996a91502b6d047137a9f07c5b8cd72c1a274b23a1a81e843e7d1874c"
+    },
+    {
+      "path": "variant_b_results/host_profile.json",
+      "bytes": 1105,
+      "sha256": "e9b541fce3ac6d705e25c6b83140c853eb310504e53b089492d90a2358bb7ae8"
+    },
+    {
+      "path": "variant_b_support.py",
+      "bytes": 4123,
+      "sha256": "65a10eedac32505a465016c097abfd6917b18b1128a08b692fb358e3705553db"
+    },
+    {
+      "path": "verify_variant_b.py",
+      "bytes": 18956,
+      "sha256": "89f378120d84bad0e86e8e23cd1390a7f7cc4535bedf32ac28614bcee828c8fe"
+    }
+  ],
+  "limitations": [
+    "Source hashes are recorded; they are not a signed proof of how elapsed times were captured.",
+    "Empirical performance targets do not determine the numerical/schema verification exit status.",
+    "Karp-Flatt trajectories alone cannot establish specific bus, cache-coherence, or lock-wait mechanisms.",
+    "Instructor review and sign-off remain pending."
+  ]
+}

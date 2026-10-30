@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "case_id": "a_micro",
+  "created_at_utc": "2026-10-30T09:52:33.194466+00:00",
+  "config": {
+    "total_items": 1000000,
+    "chunk_size": 1,
+    "repeats": 3,
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "start_method": "spawn",
+    "quick": false,
+    "timing_scope": "fresh Pool creation through map and teardown; checksum reduction excluded",
+    "worker_order": "rotate (1, 2, 4, 8) left by repeat index modulo 4"
+  },
+  "samples": [
+    {
+      "workers": 1,
+      "runtime_seconds": 13.969781082996633,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 1,
+      "correctness_passed": true
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 11.195017624995671,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 1,
+      "correctness_passed": true
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 13.080500458017923,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 1,
+      "correctness_passed": true
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 13.992705416982062,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 1,
+      "correctness_passed": true
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 10.990057707997039,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 2,
+      "correctness_passed": true
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 13.538764249999076,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 2,
+      "correctness_passed": true
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 13.785910167003749,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 2,
+      "correctness_passed": true
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 13.561112082999898,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 2,
+      "correctness_passed": true
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 13.521676040982129,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 3,
+      "correctness_passed": true
+    },
+    {
+      "workers": 8,
+      "runtime_seconds": 14.092193666001549,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 3,
+      "correctness_passed": true
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 13.962332708004396,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 3,
+      "correctness_passed": true
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 10.954960166011006,
+      "total_items": 1000000,
+      "chunk_size": 1,
+      "result_count": 1000000,
+      "result_sum": 131434424,
+      "start_method": "spawn",
+      "repeat": 3,
+      "correctness_passed": true
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "repeats": 3,
+      "median_seconds": 13.962332708004396,
+      "minimum_seconds": 13.561112082999898,
+      "maximum_seconds": 13.969781082996633,
+      "speedup": 1.0,
+      "efficiency_percent": 100.0,
+      "karp_flatt": null
+    },
+    {
+      "workers": 2,
+      "repeats": 3,
+      "median_seconds": 10.990057707997039,
+      "minimum_seconds": 10.954960166011006,
+      "maximum_seconds": 11.195017624995671,
+      "speedup": 1.2704512641316295,
+      "efficiency_percent": 63.522563206581474,
+      "karp_flatt": 0.5742437797226538
+    },
+    {
+      "workers": 4,
+      "repeats": 3,
+      "median_seconds": 13.521676040982129,
+      "minimum_seconds": 13.080500458017923,
+      "maximum_seconds": 13.538764249999076,
+      "speedup": 1.0325889087777806,
+      "efficiency_percent": 25.814722719444518,
+      "karp_flatt": 0.9579194798617334
+    },
+    {
+      "workers": 8,
+      "repeats": 3,
+      "median_seconds": 13.992705416982062,
+      "minimum_seconds": 13.785910167003749,
+      "maximum_seconds": 14.092193666001549,
+      "speedup": 0.9978293898090069,
+      "efficiency_percent": 12.472867372612587,
+      "karp_flatt": 1.002486093701459
+    }
+  ],
+  "notes": [
+    "Timed collatz_steps is the handout's scalar loop; it has no memoization.",
+    "An optimized untimed oracle checks the same checksum for every worker count.",
+    "Range construction and result checksum reduction are outside the elapsed-time scope.",
+    "Each repetition uses a fresh spawn Pool and retains the full prescribed input size."
+  ]
+}

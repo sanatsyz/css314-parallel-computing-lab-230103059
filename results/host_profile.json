@@ -1,0 +1,55 @@
+{
+  "recorded_at_utc": "2026-10-30T04:55:51.452541+00:00",
+  "cpu_model": "Apple M4",
+  "architecture": "arm64",
+  "microarchitecture": null,
+  "base_frequency_hz": null,
+  "physical_cores": 10,
+  "logical_threads": 10,
+  "cache_line_bytes": 128,
+  "caches": {
+    "l1_data_bytes": 65536,
+    "l2_bytes": 4194304,
+    "l3_bytes": null
+  },
+  "performance_levels": [
+    {
+      "name": "Performance",
+      "physical_cores": 4,
+      "logical_threads": 4,
+      "l1_data_bytes": 131072,
+      "l2_bytes": 16777216,
+      "cores_per_l2": 4
+    },
+    {
+      "name": "Efficiency",
+      "physical_cores": 6,
+      "logical_threads": 6,
+      "l1_data_bytes": 65536,
+      "l2_bytes": 4194304,
+      "cores_per_l2": 6
+    }
+  ],
+  "os": "Darwin",
+  "kernel_version": "27.0.0",
+  "python": {
+    "implementation": "CPython",
+    "version": "3.14.3",
+    "executable": "/Users/sanatsyz/Desktop/assignment sufi/.venv/bin/python"
+  },
+  "timer": {
+    "name": "perf_counter_ns",
+    "implementation": "mach_absolute_time()",
+    "resolution_seconds": 4.166666666666666e-08,
+    "monotonic": true
+  },
+  "peak_memory_bandwidth_bytes_per_second": null,
+  "hardware_performance_counters": {
+    "status": "not_collected",
+    "reason": "No privileged hardware counter profiler was available; no cache hit rates inferred."
+  },
+  "notes": [
+    "sysctl source. Cache values differ by performance/efficiency cluster; see performance_levels. Unknown base frequency, L3 and microarchitecture remain null; absence of a sysctl is not evidence of zero capacity."
+  ],
+  "smt_detected": false
+}

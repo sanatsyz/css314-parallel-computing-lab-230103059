@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-30T06:03:02.958457+00:00",
+  "correctness_status": "pass",
+  "verification_kind": "local independent schema, arithmetic and numerical checks",
+  "official_instructor_checker": false,
+  "cryptographically_signed": false,
+  "instructor_signoff": "pending",
+  "checks": {
+    "A": {
+      "status": "pass",
+      "samples_verified": 9,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 2.9458251659816597,
+          "minimum_seconds": 2.6204207080008928,
+          "maximum_seconds": 2.970732209010748,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 1.5837059159821365,
+          "minimum_seconds": 1.571341584000038,
+          "maximum_seconds": 1.6015461669885553,
+          "speedup": 1.8600834512604594,
+          "efficiency_percent": 93.00417256302296,
+          "karp_flatt": 0.07522057606863175
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 1.0568063750106376,
+          "minimum_seconds": 1.0559590829943772,
+          "maximum_seconds": 1.1081735420157202,
+          "speedup": 2.7874786106887437,
+          "efficiency_percent": 69.6869652672186,
+          "karp_flatt": 0.14499619652228293
+        }
+      ],
+      "full_handout_parameters": true
+    },
+    "B": {
+      "status": "pass",
+      "samples_verified": 9,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 2.943990291998489,
+          "minimum_seconds": 2.7816694999928586,
+          "maximum_seconds": 2.944500750018051,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 7.782049166999059,
+          "minimum_seconds": 7.6562191669945605,
+          "maximum_seconds": 9.324840750021394,
+          "speedup": 0.3783052803730564,
+          "efficiency_percent": 18.91526401865282,
+          "karp_flatt": 4.286735617403356
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 8.478878541995073,
+          "minimum_seconds": 7.508496332971845,
+          "maximum_seconds": 9.310689707985148,
+          "speedup": 0.3472145847374965,
+          "efficiency_percent": 8.680364618437412,
+          "karp_flatt": 3.5067511329956633
+        }
+      ],
+      "full_handout_parameters": true
+    },
+    "C": {
+      "status": "pass",
+      "samples_verified": 9,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 0.2805098750104662,
+          "minimum_seconds": 0.2762625420000404,
+          "maximum_seconds": 0.28921108299982734,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 0.16378133298712783,
+          "minimum_seconds": 0.1626074580126442,
+          "maximum_seconds": 0.16675887498422526,
+          "speedup": 1.7127096836640872,
+          "efficiency_percent": 85.63548418320435,
+          "karp_flatt": 0.1677402300437154
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 0.11283837500377558,
+          "minimum_seconds": 0.11270833300659433,
+          "maximum_seconds": 0.11334487501881085,
+          "speedup": 2.485943944168642,
+          "efficiency_percent": 62.148598604216055,
+          "karp_flatt": 0.20301558010897325
+        }
+      ],
+      "full_handout_parameters": true
+    }
+  },
+  "rubric": {
+    "A": {
+      "meets_numeric_condition": false,
+      "e4_over_e2": 1.9276134815823192,
+      "condition": "0.80 <= e(4)/e(2) <= 1.25"
+    },
+    "B": {
+      "meets_numeric_condition": false,
+      "t4_greater_than_t1": true,
+      "e4_greater_than_e2": false,
+      "e2": 4.286735617403356,
+      "e4": 3.5067511329956633,
+      "e4_minus_e2": -0.7799844844076929,
+      "condition": "T4 > T1 and increasing e; instructor interprets '>>'",
+      "instructor_judgment_required": true
+    },
+    "C": {
+      "meets_numeric_condition": false,
+      "t4_less_than_t1": true,
+      "efficiency_4_percent": 62.148598604216055,
+      "condition": "T4 < T1 and E4 > 70%"
+    }
+  },
+  "supplemental": {
+    "C_200m": {
+      "status": "pass",
+      "samples_verified": 9,
+      "summary": [
+        {
+          "workers": 1,
+          "repeats": 3,
+          "median_seconds": 2.4322285420203116,
+          "minimum_seconds": 2.3929431659926195,
+          "maximum_seconds": 2.4375832920195535,
+          "speedup": 1.0,
+          "efficiency_percent": 100.0,
+          "karp_flatt": null
+        },
+        {
+          "workers": 2,
+          "repeats": 3,
+          "median_seconds": 1.250067333021434,
+          "minimum_seconds": 1.2438742080121301,
+          "maximum_seconds": 1.2558787079760805,
+          "speedup": 1.9456780269120175,
+          "efficiency_percent": 97.28390134560088,
+          "karp_flatt": 0.027919302339142416
+        },
+        {
+          "workers": 4,
+          "repeats": 3,
+          "median_seconds": 0.6701819580048323,
+          "minimum_seconds": 0.6688818340189755,
+          "maximum_seconds": 0.686287667020224,
+          "speedup": 3.629206237155633,
+          "efficiency_percent": 90.73015592889082,
+          "karp_flatt": 0.03405646107480279
+        }
+      ],
+      "full_handout_parameters": false,
+      "total_increments": 200000000,
+      "interpretation": "Supplemental workload only; does not replace the primary 20M experiment",
+      "performance_observation": {
+        "meets_numeric_condition": true,
+        "t4_less_than_t1": true,
+        "efficiency_4_percent": 90.73015592889082,
+        "condition": "T4 < T1 and E4 > 70%"
+      }
+    }
+  },
+  "manifest": [
+    {
+      "path": "GUIDE.md",
+      "bytes": 11385,
+      "sha256": "387e357b99c8b60cbe17cbc9e834937a870e51bb110d7e052dd2d948039f1ec9"
+    },
+    {
+      "path": "PRACTICE_GUIDE.md",
+      "bytes": 8788,
+      "sha256": "827ea1eef6e0b3182774f5e8c5a64821676a7867d232976ec46feba9d11d7293"
+    },
+    {
+      "path": "Practice Lab Handout.pdf",
+      "bytes": 341723,
+      "sha256": "6de69440416150c11dcb6dd6bf9fd808ed6a538f53b9377fd77bf05cc94b9983"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2223,
+      "sha256": "0506f73823ff90b1f5393d4456bae58045070735954af928473ce5fb9f0c3fc5"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 5845,
+      "sha256": "022b33a85ea21e5ded609cf610a3a22a27a2d14e4a9c02ad346159df78dbe0dc"
+    },
+    {
+      "path": "exp_a_serial.py",
+      "bytes": 5594,
+      "sha256": "2825b0d1cc3d7fc0835cd3c808e187c939f13c644f20738b94d7be162f0ce3ca"
+    },
+    {
+      "path": "exp_b_contention.py",
+      "bytes": 5193,
+      "sha256": "7f2b2cbc6799fedbf5e25d67dfd7d0bb65f889afb4b47207c2a3401530a7d5fd"
+    },
+    {
+      "path": "exp_c_fixed.py",
+      "bytes": 3862,
+      "sha256": "0d242e0182b331401781bb6493e388967e23f28ae330c2cd79f51832df3a88cd"
+    },
+    {
+      "path": "practice_report.py",
+      "bytes": 9487,
+      "sha256": "26144bddc0ad93282fb8d4c83c5190a2cc7fa265c163b2ce6716700c181e08b9"
+    },
+    {
+      "path": "practice_results/configuration.json",
+      "bytes": 709,
+      "sha256": "5c046786baf64fe02d0c6e99104d50964555a18b0f4a8dd0a728244d268fb37d"
+    },
+    {
+      "path": "practice_results/experiment_a.json",
+      "bytes": 8936,
+      "sha256": "3b74ed34c755127ecef11e153956cd831cba644b3014bf7e4fc7c781c7474e7e"
+    },
+    {
+      "path": "practice_results/experiment_a.tsv",
+      "bytes": 406,
+      "sha256": "dc56a1b403d46e0bd15f12fc6bd18bfb11cf38574d3aef3d0f83ad921927fd0e"
+    },
+    {
+      "path": "practice_results/experiment_b.json",
+      "bytes": 6194,
+      "sha256": "d6d757c3c2ea79c4c38ba1e78af6aa8d05943904f578b519c4a207bc48fd4c16"
+    },
+    {
+      "path": "practice_results/experiment_b.tsv",
+      "bytes": 399,
+      "sha256": "1b5d0f2c99a435fa792626ce38ad29da76478beef48542326691fa2f7b314981"
+    },
+    {
+      "path": "practice_results/experiment_c.json",
+      "bytes": 5403,
+      "sha256": "37d7529fc1e6a8eb1b8f0fad58e00081b86cd629f6d24f3bfbe3b3da58350079"
+    },
+    {
+      "path": "practice_results/experiment_c.tsv",
+      "bytes": 414,
+      "sha256": "c7b4cdf451f1fc642db4c3d584b9fd77b09dd40a0181c614fc8fdc7d9d5ed867"
+    },
+    {
+      "path": "practice_results/host_profile.json",
+      "bytes": 925,
+      "sha256": "fe0f70a3b39387a0491620bce52545eb9690642f87573a21eb7022546320d36e"
+    },
+    {
+      "path": "practice_results/supplemental_c_200m/experiment_c.json",
+      "bytes": 5449,
+      "sha256": "b14a0030006856d43e0d4c8453a05650e346484a00ee1fb3f8c097e206ca6e8b"
+    },
+    {
+      "path": "practice_results/supplemental_c_200m/experiment_c.tsv",
+      "bytes": 407,
+      "sha256": "915428c2032c3b003db9305cfa2ae2c79165d178ea30c21ec61ddc6c2b51d301"
+    },
+    {
+      "path": "practice_support.py",
+      "bytes": 7223,
+      "sha256": "b47900b740548490899454b9ed60a29578371bf0ff6edd5e93ce642a33bd456f"
+    },
+    {
+      "path": "practice_verify.py",
+      "bytes": 17938,
+      "sha256": "f7f9f1459ea4fb1cd2f3f246bf0295c6f5a0aaed45c717ab85915e3eadca3f9e"
+    },
+    {
+      "path": "run_practice.py",
+      "bytes": 1224,
+      "sha256": "f3c0bff853cd5a1592961d9a8eb4af31dc7d1893e11ebe50ba0f6103295cca5a"
+    },
+    {
+      "path": "tests/test_practice_a.py",
+      "bytes": 2487,
+      "sha256": "22a4c4af0c655cd1a3d99ebc322e8fd31429771a4c1088fd280b7dd22daa7be2"
+    },
+    {
+      "path": "tests/test_practice_counters.py",
+      "bytes": 3571,
+      "sha256": "55c51a24d4817c7fbff6801335e5ea10427df02f072a2d926c4ac8346bf63655"
+    },
+    {
+      "path": "tests/test_practice_verification.py",
+      "bytes": 12656,
+      "sha256": "cd61c2114228592cfaf6eecb86c2553046c6741900261c63cec27af65506dec0"
+    }
+  ],
+  "limitations": [
+    "Saved samples are checked and source hashes are recorded; this does not independently prove how timings were captured.",
+    "Performance rubric observations do not determine the numerical/schema verification exit status.",
+    "Karp\u2013Flatt growth does not by itself identify a specific hardware bottleneck.",
+    "Instructor sign-off and interpretation of B's unquantified '>>' remain pending."
+  ]
+}

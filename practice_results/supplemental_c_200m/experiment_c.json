@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "experiment": "C",
+  "created_at_utc": "2026-10-30T05:58:25.030003+00:00",
+  "config": {
+    "total_increments": 200000000,
+    "repeats": 3,
+    "workers": [
+      1,
+      2,
+      4
+    ],
+    "start_method": "spawn",
+    "quick": false,
+    "timing_scope": "before fresh Pool creation through teardown and final sum",
+    "worker_order": "rotate (1, 2, 4) left by repeat index modulo 3"
+  },
+  "samples": [
+    {
+      "workers": 1,
+      "runtime_seconds": 2.4375832920195535,
+      "worker_counts": [
+        200000000
+      ],
+      "worker_iterations": [
+        200000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 1.250067333021434,
+      "worker_counts": [
+        100000000,
+        100000000
+      ],
+      "worker_iterations": [
+        100000000,
+        100000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 1
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.6688818340189755,
+      "worker_counts": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "worker_iterations": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 1
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 1.2558787079760805,
+      "worker_counts": [
+        100000000,
+        100000000
+      ],
+      "worker_iterations": [
+        100000000,
+        100000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.6701819580048323,
+      "worker_counts": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "worker_iterations": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 2
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 2.3929431659926195,
+      "worker_counts": [
+        200000000
+      ],
+      "worker_iterations": [
+        200000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 2
+    },
+    {
+      "workers": 4,
+      "runtime_seconds": 0.686287667020224,
+      "worker_counts": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "worker_iterations": [
+        50000000,
+        50000000,
+        50000000,
+        50000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 3
+    },
+    {
+      "workers": 1,
+      "runtime_seconds": 2.4322285420203116,
+      "worker_counts": [
+        200000000
+      ],
+      "worker_iterations": [
+        200000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 3
+    },
+    {
+      "workers": 2,
+      "runtime_seconds": 1.2438742080121301,
+      "worker_counts": [
+        100000000,
+        100000000
+      ],
+      "worker_iterations": [
+        100000000,
+        100000000
+      ],
+      "total_count": 200000000,
+      "expected_total": 200000000,
+      "counts_verified": true,
+      "start_method": "spawn",
+      "shared_counter": false,
+      "repeat": 3
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "repeats": 3,
+      "median_seconds": 2.4322285420203116,
+      "minimum_seconds": 2.3929431659926195,
+      "maximum_seconds": 2.4375832920195535,
+      "speedup": 1.0,
+      "efficiency_percent": 100.0,
+      "karp_flatt": null
+    },
+    {
+      "workers": 2,
+      "repeats": 3,
+      "median_seconds": 1.250067333021434,
+      "minimum_seconds": 1.2438742080121301,
+      "maximum_seconds": 1.2558787079760805,
+      "speedup": 1.9456780269120175,
+      "efficiency_percent": 97.28390134560088,
+      "karp_flatt": 0.027919302339142416
+    },
+    {
+      "workers": 4,
+      "repeats": 3,
+      "median_seconds": 0.6701819580048323,
+      "minimum_seconds": 0.6688818340189755,
+      "maximum_seconds": 0.686287667020224,
+      "speedup": 3.629206237155633,
+      "efficiency_percent": 90.73015592889082,
+      "karp_flatt": 0.03405646107480279
+    }
+  ],
+  "notes": [
+    "Each worker counts in a local variable; the parent sums returned counts once.",
+    "Fixed total work is partitioned with remainders preserved; it is not multiplied by P.",
+    "Each trial uses a fresh spawn Pool; startup, IPC, teardown, and final reduction are timed.",
+    "Measured speedup and Karp-Flatt values are reported as observed, without enforcing a trend."
+  ]
+}

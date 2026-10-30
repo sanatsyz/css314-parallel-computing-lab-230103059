@@ -9,7 +9,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from scaling_study import (  # noqa: E402
-    _metrics, benchmark_once, fit_amdahl, init_grid, load_saved_array, process_counts,
+    _metrics, benchmark_once, fit_amdahl, fit_gustafson, init_grid, load_saved_array, process_counts,
     reference_stencil, save_array_parts,
 )
 
@@ -87,6 +87,18 @@ class StencilCorrectnessTests(unittest.TestCase):
         self.assertEqual(superlinear["bounded_serial_fraction"], 0)
         self.assertIsNone(superlinear["bounded_asymptotic_speedup"])
 
+    def test_gustafson_fit_recovers_known_effective_fraction(self):
+        alpha = 0.15
+        # Exact work grows proportionally; times yield S=P-alpha*(P-1).
+        cases = [{"workers": p, "work_cell_updates": 100 * p,
+                  "median_kernel_seconds": p / (p - alpha * (p - 1))}
+                 for p in [1, 2, 4, 8]]
+        fit = fit_gustafson(cases)
+        self.assertAlmostEqual(fit["unconstrained_serial_fraction"], alpha)
+        self.assertAlmostEqual(fit["bounded_serial_fraction"], alpha)
+        self.assertLess(fit["unconstrained_residual_sum_of_squares"], 1e-25)
+        self.assertFalse(fit["physical_range_violation"])
+
     def test_assignment_and_conventional_weak_formulas_are_distinct(self):
         def case(p, work):
             return {"workers": p, "n": 8, "steps": 2, "work_cell_updates": work,
@@ -98,6 +110,8 @@ class StencilCorrectnessTests(unittest.TestCase):
         self.assertEqual(largest["assignment_scaled_speedup"], 1.0)
         self.assertEqual(largest["conventional_throughput_speedup"], 4.0)
         self.assertEqual(largest["parallel_efficiency_percent"], 100.0)
+        self.assertEqual(largest["gustafson_effective_serial_fraction"], 0.0)
+        self.assertEqual(records[-2]["gustafson_effective_serial_fraction"], "")
 
 
 if __name__ == "__main__":

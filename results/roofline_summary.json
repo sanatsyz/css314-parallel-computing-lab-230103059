@@ -175,6 +175,60 @@
     "physical_range_violation": false,
     "caveat": "An effective fit includes communication, barriers, heterogeneous cores and noise. Values outside [0,1] indicate model mismatch; the bounded fit is a constrained summary."
   },
+  "gustafson_fit": {
+    "identifiable": true,
+    "model": "S(P) = P - alpha * (P - 1)",
+    "method": "least squares on measured growing-work conventional throughput speedup",
+    "speedup_definition": "Work(P)/Work(1) * T1/Tp, using exact interior cell-update counts",
+    "unconstrained_serial_fraction": 0.7988004956458891,
+    "bounded_serial_fraction": 0.7988004956458891,
+    "physical_range_violation": false,
+    "residuals": [
+      {
+        "workers": 1,
+        "measured_conventional_throughput_speedup": 1.0,
+        "unconstrained_fitted_speedup": 1.0,
+        "bounded_fitted_speedup": 1.0,
+        "unconstrained_residual": 0.0,
+        "bounded_residual": 0.0
+      },
+      {
+        "workers": 2,
+        "measured_conventional_throughput_speedup": 2.0417550762487995,
+        "unconstrained_fitted_speedup": 1.2011995043541108,
+        "bounded_fitted_speedup": 1.2011995043541108,
+        "unconstrained_residual": 0.8405555718946887,
+        "bounded_residual": 0.8405555718946887
+      },
+      {
+        "workers": 4,
+        "measured_conventional_throughput_speedup": 2.4148373142926096,
+        "unconstrained_fitted_speedup": 1.603598513062333,
+        "bounded_fitted_speedup": 1.603598513062333,
+        "unconstrained_residual": 0.8112388012302767,
+        "bounded_residual": 0.8112388012302767
+      },
+      {
+        "workers": 8,
+        "measured_conventional_throughput_speedup": 2.4707800000912092,
+        "unconstrained_fitted_speedup": 2.408396530478776,
+        "bounded_fitted_speedup": 2.408396530478776,
+        "unconstrained_residual": 0.06238346961243302,
+        "bounded_residual": 0.06238346961243302
+      },
+      {
+        "workers": 10,
+        "measured_conventional_throughput_speedup": 2.3984670655344926,
+        "unconstrained_fitted_speedup": 2.8107955391869988,
+        "bounded_fitted_speedup": 2.8107955391869988,
+        "unconstrained_residual": -0.41232847365250613,
+        "bounded_residual": -0.41232847365250613
+      }
+    ],
+    "unconstrained_residual_sum_of_squares": 1.5385485295302344,
+    "bounded_residual_sum_of_squares": 1.5385485295302344,
+    "caveat": "This workload-growing effective fit includes all synchronization, scheduling, heterogeneous-core, cache and measurement effects; alpha does not identify an intrinsic serial phase. Values outside [0,1] indicate model mismatch."
+  },
   "scaling_comparison": {
     "largest_strong_efficiency_percent": 13.709301553096271,
     "largest_weak_efficiency_percent": 23.984670655344924,

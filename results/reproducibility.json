@@ -1,0 +1,24 @@
+{
+  "python_version": "3.14.3",
+  "numpy_version": "2.5.4",
+  "benchmark_execution": "Sequential full runs on the local physical host; no overlapping benchmark jobs initiated by this project.",
+  "student_id_normalization": "User explicitly requested removing the first digit from the supplied nine-digit ID; exact salted input is 30103059.",
+  "commands": [
+    "python src/profile_env.py --student-id 30103059",
+    "python src/stride_bench.py",
+    "python src/dense_kernel.py",
+    "python src/false_sharing.py",
+    "python src/scaling_study.py"
+  ],
+  "source_notes": [
+    "Native C hot loops invoked through ctypes for dense, stride and false-sharing experiments.",
+    "Python/NumPy shared-memory stencil; synchronized updates include barriers; startup also recorded separately."
+  ],
+  "instructor_verifier_supplied": false,
+  "ai_assisted": true,
+  "measurement_limitations": [
+    "No privileged hardware performance counters or CPU-affinity pinning.",
+    "Background desktop activity and heterogeneous cores can affect measurements.",
+    "Theoretical FP64 CPU peak, base frequency and L3 not asserted."
+  ]
+}

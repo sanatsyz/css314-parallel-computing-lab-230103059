@@ -368,6 +368,57 @@ def fit_amdahl(cases: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def fit_gustafson(weakcases: list[dict[str, Any]]) -> dict[str, Any]:
+    """Fit growing-work throughput S(P) = P - alpha * (P - 1).
+
+    Work is the exact number of interior cell updates, including rounding of
+    the weak grid dimension. Alpha is an effective fit to measured throughput;
+    barriers, scheduling and cache effects need not behave like a serial phase.
+    """
+    base = next(c for c in weakcases if c["workers"] == 1)
+    numerator = denominator = 0.0
+    points = []
+    for case in weakcases:
+        p = case["workers"]
+        speedup = (
+            case["work_cell_updates"] / base["work_cell_updates"]
+            * base["median_kernel_seconds"] / case["median_kernel_seconds"]
+        )
+        x = p - 1
+        numerator += x * (p - speedup)
+        denominator += x * x
+        points.append((p, speedup))
+    if denominator == 0:
+        return {"identifiable": False, "reason": "at least one P > 1 is required"}
+    alpha = numerator / denominator
+    bounded = min(1.0, max(0.0, alpha))
+    residuals = [{
+        "workers": p,
+        "measured_conventional_throughput_speedup": speedup,
+        "unconstrained_fitted_speedup": p - alpha * (p - 1),
+        "bounded_fitted_speedup": p - bounded * (p - 1),
+        "unconstrained_residual": speedup - (p - alpha * (p - 1)),
+        "bounded_residual": speedup - (p - bounded * (p - 1)),
+    } for p, speedup in points]
+    return {
+        "identifiable": True,
+        "model": "S(P) = P - alpha * (P - 1)",
+        "method": "least squares on measured growing-work conventional throughput speedup",
+        "speedup_definition": "Work(P)/Work(1) * T1/Tp, using exact interior cell-update counts",
+        "unconstrained_serial_fraction": alpha,
+        "bounded_serial_fraction": bounded,
+        "physical_range_violation": not 0.0 <= alpha <= 1.0,
+        "residuals": residuals,
+        "unconstrained_residual_sum_of_squares": sum(r["unconstrained_residual"] ** 2 for r in residuals),
+        "bounded_residual_sum_of_squares": sum(r["bounded_residual"] ** 2 for r in residuals),
+        "caveat": (
+            "This workload-growing effective fit includes all synchronization, scheduling, "
+            "heterogeneous-core, cache and measurement effects; alpha does not identify an "
+            "intrinsic serial phase. Values outside [0,1] indicate model mismatch."
+        ),
+    }
+
+
 def _metrics(strong: list[dict[str, Any]], weak: list[dict[str, Any]]) -> list[dict[str, Any]]:
     records = []
     for mode, cases in (("strong", strong), ("weak", weak)):
@@ -387,6 +438,8 @@ def _metrics(strong: list[dict[str, Any]], weak: list[dict[str, Any]]) -> list[d
                 "time_speedup_T1_over_Tp": time_ratio,
                 "conventional_throughput_speedup": throughput_speedup,
                 "parallel_efficiency_percent": throughput_speedup / p * 100.0,
+                "gustafson_effective_serial_fraction": (p - throughput_speedup) / (p - 1)
+                    if mode == "weak" and p > 1 else "",
                 # This is the formula printed in Task 3.2, recorded literally.
                 "assignment_scaled_speedup": p / work_ratio * time_ratio if mode == "weak" else "",
                 "updates_per_second": case["work_cell_updates"] / case["median_kernel_seconds"],
@@ -469,6 +522,9 @@ def _roofline_summary(
         "conclusion": "The stencil has low arithmetic intensity and is sensitive to memory traffic. Barrier synchronization, NumPy pass overhead, process scheduling and mixed core types can also limit measured scaling. A definitive roofline classification requires documented compute/bandwidth peaks and evidence of the cache/DRAM regime.",
         "operating_points": operating_points,
         "amdahl_fit": amdahl,
+        "gustafson_fit": fit_gustafson([
+            case for case, record in zip(cases, records) if record["mode"] == "weak"
+        ]),
         "scaling_comparison": {
             "largest_strong_efficiency_percent": strong_records[-1]["parallel_efficiency_percent"],
             "largest_weak_efficiency_percent": weak_records[-1]["parallel_efficiency_percent"],
@@ -535,6 +591,7 @@ def main(argv: list[str] | None = None) -> int:
         "end_to_end_scope": "shared-memory allocation, initialization, spawn/import, warmup, kernel, output copy, joining and cleanup; excludes independent serial validation and saving arrays",
         "work_definition": "(N-2)^2 * steps interior cell updates",
         "strong": strong, "weak": weak, "amdahl_fit": amdahl,
+        "gustafson_fit": fit_gustafson(weak),
     }
     (output_dir / "scaling_raw.json").write_text(json.dumps(raw, indent=2, allow_nan=False) + "\n")
     with (output_dir / "scaling_metrics.tsv").open("w", newline="") as file:

@@ -1,0 +1,3 @@
+# Task 02 — Deriving scaled speedup
+
+Normalize the elapsed time on P processors to 1. Let s be the serial elapsed-time share and p be the parallel elapsed-time share, so `s+p=1`. To perform the same expanded work serially, serial work still costs s; the parallel segment, formerly executed concurrently on P processors, costs Pp on one processor. Thus equivalent serial time is `T₁=s+Pp`. Scaled speedup divides this reference time by the measured parallel time 1: `S=s+Pp`. Since p=1−s, `S=s+P(1−s)=P−s(P−1)`. Writing the observed serial fraction as α gives Gustafson's formula `S(P)=P−α(P−1)`. Efficiency `E=S/P=1−α+α/P`. The derivation assumes work expands with P, runtime stays normalized, and communication, imbalance, and other overhead do not grow.

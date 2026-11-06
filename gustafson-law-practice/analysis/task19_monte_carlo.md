@@ -1,0 +1,3 @@
+# Task 19 — Monte Carlo
+
+Independent paths are nearly embarrassingly parallel. Serial portions include orchestration, PRNG stream assignment, final reduction, and output. A binary reduction of one scalar per worker takes roughly `λ⌈log₂P⌉+γ log₂P` for stage latency λ and payload/reduction cost γ. If this adds R(P) to baseline normalized time, a simple adjusted model is `S=[α₀+P(1−α₀)]/[1+R(P)/T₀]`. Counter-based/splittable PRNG streams avoid centralized seed contention; fixed-size output helps preserve scaling. Reproducible random streams and floating-point reduction order need explicit handling.
